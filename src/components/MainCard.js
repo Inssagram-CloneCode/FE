@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+
 import {
   HeartOffSvg,
   HeartOnSvg,
@@ -145,6 +145,7 @@ const MainCard = () => {
           댓글 {commentNum}개 모두 보기
           <br />
           <span className="timeSt">{createdAt}</span>
+          {/* 영동님 댓글 컴포넌트 추가되는 부분  */}
         </div>
       </div>
       <div className="outInputSt"></div>
