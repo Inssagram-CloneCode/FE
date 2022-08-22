@@ -1,0 +1,32 @@
+.modal_background{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: var(--color-dark);
+}
+.modal_btn{
+  width: 34px;
+  height: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+.modal_board{
+  width: calc(90% - 64px - 64px);
+  height: 80%;
+  /* height: calc(100vh - 40px); */
+  display: flex;
+  border-radius: 0.5rem;
+  background-color: var(--color-background);
+}
