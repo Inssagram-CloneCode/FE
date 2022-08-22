@@ -1,14 +1,15 @@
-import React from 'react';
+import React from 'react'
 import Header from '../components/Header';
+import MainCard from '../components/MainCard'
 
 
-const Main = () => {
-  return(
+const MainPage = () => {
+  return (
     <>
       <Header />
-      <div>메인 페이지입니다.</div>
+      <MainCard/>
     </>
   )
 }
 
-export default Main;
+export default MainPage;

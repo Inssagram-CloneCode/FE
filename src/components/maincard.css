@@ -1,0 +1,18 @@
+
+.card {
+    height: 587px;
+    width: 470px;
+}
+
+.img d-block w-100 {
+    height: 700px;
+    width: 470px;
+}
+
+
+.card-footer {
+    padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
+    color: var(--bs-card-cap-color);
+    background-color: white;
+    border-top: none;
+}
