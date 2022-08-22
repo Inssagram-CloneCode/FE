@@ -1,18 +1,115 @@
 
-.card {
+.outLineSt {
+    width: 470px;
+    overflow-x:hidden;
+    border: solid #DBDBDB 1px;
+    border-radius: 15px; 
+}
+
+.outTopSt {
+    width: 470px;
+    height: 56px;
+    position: relative;
+}
+
+.inTopSt {
+    width: 470px;
+    height: 56px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%)
+    
+}
+.profile {
+     width: 37px;
+     height: 37px;
+     border-radius: 50%;
+     margin: 10px;
+}
+
+.outBottomSt{
+    width: 470px;
+    height: 56px;
+    display: inline-block;
+}
+
+.inBottomIndicatorSt{
+  /* margin: auto; */
+  text-align: center;
+}
+
+
+.indicatorSt {
+    color:#828282;
+    font-size: 10px;
+    text-align: center;
+}
+
+.selectedSt {
+    color: blue;
+}
+
+.timeSt {
+    font-size: 14px;
+    color:#828282;
+}
+
+
+.inBottomSt>button{
+    width: 40px;
+    height: 40px;
+    /* padding-top:15px; */
+    padding-bottom: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.inBottomSt>button>svg:hover{
+    opacity: 0.5;
+}
+
+.inBottomSt>button.heartfalse>svg:hover{
+    animation: popping 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+}
+.inBottomSt>button.hearttrue>svg{
+    /* transform: scale(1.25);
+    transition: transform 0.4s; */
+    animation: popping 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+    opacity: 1;
+}
+
+  
+  @keyframes popping {
+    0% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+    
+  }
+
+.outBottomComSt {
+    padding: 0px 12px 12px 12px;
+}
+
+.d-block w-100 {
     height: 587px;
     width: 470px;
 }
 
-.img d-block w-100 {
-    height: 700px;
-    width: 470px;
-}
+.carousel-control-prev-icon { 
+    background-image: url("./iconfolder/prev.svg"); 
+ }
 
+ .carousel-control-next-icon { 
+    background-image: url("./iconfolder/next.svg"); 
+ }
 
-.card-footer {
-    padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
-    color: var(--bs-card-cap-color);
-    background-color: white;
-    border-top: none;
-}
+ .carousel-indicators {
+    background-image: url("./iconfolder/next.svg"); 
+ }
+
+ .card {
+    border: none;
+ }
