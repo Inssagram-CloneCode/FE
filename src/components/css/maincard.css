@@ -99,17 +99,13 @@
 }
 
 .carousel-control-prev-icon { 
-    background-image: url("./iconfolder/prev.svg"); 
+    background-image: url("../iconfolder/prev.svg"); 
  }
 
  .carousel-control-next-icon { 
-    background-image: url("./iconfolder/next.svg"); 
+    background-image: url("../iconfolder/next.svg"); 
  }
 
  .carousel-indicators {
-    background-image: url("./iconfolder/next.svg"); 
- }
-
- .card {
-    border: none;
+    background-image: url("../iconfolder/next.svg"); 
  }

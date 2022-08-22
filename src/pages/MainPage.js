@@ -6,13 +6,10 @@ import "./mainpage.css";
 const MainPage = () => {
   return (
     <Layout>
-    <Card>
-    <div className='layout'>
+    <Card className='cardMainAll'>
       <MainCard/>
       <div className='miniCard'>
-       
       </div>
-    </div>
     </Card>
    </Layout>
   )

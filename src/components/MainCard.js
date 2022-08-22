@@ -7,7 +7,7 @@ import {
   HeartOnSvg,
   ReplySvg,
 } from "../components/iconfolder/Icons";
-import "./maincard.css";
+import "./css/maincard.css";
 import "../pages/mainpage.css";
 
 const MainCard = () => {
