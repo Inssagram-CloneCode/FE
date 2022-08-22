@@ -88,8 +88,9 @@ const MainCard = () => {
   //     })
   //   }
   // }
-  const onClickProfile = (userId) =>{
+  const onClickProfile = ({userId, e}) =>{
    navigate(`/mypage/${username}`)
+   e.preventDefault()
    console.log(userId)
  }
  
@@ -97,7 +98,7 @@ const MainCard = () => {
     <>
       <div className="outLineSt">
         <div className="outTopSt">
-          <div className="inTopSt" onClick={onClickProfile(userId)}>
+          <div className="inTopSt" onClick={(e)=>onClickProfile({userId, e})}>
             <button >
             <img
               alt={`${username}님의 프로필 사진`}
