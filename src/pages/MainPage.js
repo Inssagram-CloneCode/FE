@@ -1,14 +1,15 @@
 import React from 'react'
+import Header from '../components/Header';
 import MainCard from '../components/MainCard'
+
 
 const MainPage = () => {
   return (
-    <div>
+    <>
+      <Header />
       <MainCard/>
-
-    </div>
-
+    </>
   )
 }
 
-export default MainPage
+export default MainPage;

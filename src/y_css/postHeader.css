@@ -1,0 +1,24 @@
+.post_header{
+  width: 100%;
+  height: 60px;
+  max-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 4px 14px 16px;
+  background-color: var(--color-background);
+  border-bottom: 1.5px solid var(--color-line);
+  border-radius: 0px 0.5rem 0px 0px;
+  font-size: var(--font-18);
+}
+.post_header_left{
+  display: flex;
+  align-items: center;
+}
+.post_header_left span{
+  font-weight: 500;
+  margin-left: 14px;
+}
+.post_header_right{
+  display: flex;
+  align-items: center;
+}

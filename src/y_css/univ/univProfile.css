@@ -1,0 +1,15 @@
+.univ_profile{
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+.univ_profile_img{
+  width: 42px;
+  height: 42px;
+  border-radius: 5rem;
+  border: 1px solid var(--color-gray-light);
+  background-color: rgb(245, 220, 131);
+}

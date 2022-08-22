@@ -1,0 +1,65 @@
+:root {
+  /* color */
+  --color-black: #000000;
+  --color-dark: #00000057;
+  --color-gray: #8E8E8E;
+  --color-gray-week: #DBDBDB;
+  --color-gray-light: #E6E6E6;
+  --color-line: #EFEFEF;
+  --color-background: #FAFAFA;
+  --color-background-light: #FFFFFF;
+  --color-darkblue: #00376B;
+  --color-skyblue: #B2DFFC;
+  --color-blue: #0095F6;
+  --color-warn: #ED4956;
+
+  /* Font size */
+  --font-32: 32px;
+  --font-26: 26px;
+  --font-22: 22px;
+  --font-20: 20px;
+  --font-18: 18px;
+  --font-17: 17px;
+  --font-16: 16px;
+  --font-15: 15px;
+  --font-14: 14px;
+  --font-12: 12px;
+  --font-10: 10px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-medium: 500;
+  --weight-regular: 400;
+}
+/* universe */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+}
+.App{
+  position: relative;
+}
+h3{
+  margin: 0px;
+}
+h4{
+  margin: 0px;
+}
+button{
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+input{
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+textarea{
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

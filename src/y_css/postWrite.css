@@ -1,0 +1,82 @@
+.modal_board4{
+  max-width: 942px;
+  min-width: 688px;
+  min-height: 390px;
+  max-height: 500px;
+  border-radius: 0.5rem;
+  background-color: var(--color-background-light);
+  overflow-y: scroll;
+}
+.post_write_header{
+  width: 100%;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid var(--color-line);
+}
+.post_write_header .univ_btn{
+  margin-right: 26px;
+}
+.post_write_header_submit{
+  width: 80px;
+  height: 100%;
+  font-weight: 500;
+}
+.post_write_header_submit div{
+  color: var(--color-blue);
+  font-weight: 700;
+}
+.post_write_content{
+  display: flex;
+}
+.post_write_img_section{
+  flex-grow: 3;
+  height: 100%;
+}
+.post_write_section{
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.post_write_desc{
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+  border-bottom: 1.5px solid var(--color-line);
+}
+.post_write_desc_profile{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.post_write_desc_profile div{
+  padding-left: 12px;
+  font-size: var(--font-16);
+  font-weight: 700;
+}
+.post_write_desc textarea{
+  display: flex;
+  height: 168px;
+  overflow-y: scroll;
+}
+.post_write_etc{
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.post_write_etc span{
+  color: var(--color-gray);
+  font-size: var(--font-12);
+}
+.post_write_additional{
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  border-bottom: 1.5px solid var(--color-line);
+}
