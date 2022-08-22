@@ -11,9 +11,12 @@
   --color-darkblue: #00376B;
   --color-skyblue: #B2DFFC;
   --color-blue: #0095F6;
+  --color-warn: #ED4956;
 
   /* Font size */
   --font-32: 32px;
+  --font-26: 26px;
+  --font-22: 22px;
   --font-20: 20px;
   --font-18: 18px;
   --font-17: 17px;

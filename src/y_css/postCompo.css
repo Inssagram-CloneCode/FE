@@ -1,3 +1,11 @@
+.modal_board{
+  width: calc(90% - 64px - 64px);
+  height: 80%;
+  /* height: calc(100vh - 40px); */
+  display: flex;
+  border-radius: 0.5rem;
+  background-color: var(--color-background);
+}
 .post_img_section{
   width: 65%;
   min-height: 450px;

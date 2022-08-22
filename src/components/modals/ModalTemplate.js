@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../y_css/modalTemplate.css';
 import PostCompo from './PostCompo';
+import TempModal from './TempModal';
+import ConfirmRemove from './ConfirmRemove'
 
 
 
@@ -12,9 +14,9 @@ const ModalTemplate = () => {
           x
         </div>
       </button>
-      <div className="modal_board">
         <PostCompo />
-      </div>
+        <TempModal />
+        <ConfirmRemove />
     </div>
   )
 }

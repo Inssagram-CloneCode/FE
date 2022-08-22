@@ -10,7 +10,7 @@ import '../../y_css/postCompo.css';
 
 const PostCompo = () => {
   return(
-    <>
+    <div className="modal_board">
       <div className="post_img_section">
         <div className="post_img_container">
           <ImgBox />
@@ -47,7 +47,7 @@ const PostCompo = () => {
         <PostFooter />
         <CommentInputBox />
       </div>
-    </>
+    </div>
   )
 }
 

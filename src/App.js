@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import MainPage from './pages/MainPage';
 import Login from './pages/Login';
 import ModalTemplate from './components/modals/ModalTemplate';
@@ -15,7 +14,7 @@ function App() {
           <Route path='/' element={<MainPage /> } />
           <Route path='/login' element={<Login /> } />
         </Routes>
-        {/* <ModalTemplate /> */}
+        <ModalTemplate />
       </Router>
     </div>
   );
