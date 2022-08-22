@@ -10,10 +10,10 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route exact path ='/' element={<MainPage/>}/>
+      <Route path ='/' element={<MainPage/>} />
       <Route path='/mypage/:userId' element={<MyPage/>}/>
+      {/* <Route path='/mypage' element={<MyPage/>} /> */}
       <Route path='/accounts/edit' element={<AccountsEdit/>}/>
-      
     </Routes>
     </BrowserRouter>
   );

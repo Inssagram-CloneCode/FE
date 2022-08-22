@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 
@@ -8,9 +8,11 @@ import {
   ReplySvg,
 } from "../components/iconfolder/Icons";
 import "./css/maincard.css";
-import "../pages/mainpage.css";
+import "../pages/css/mainpage.css";
+import { useNavigate } from "react-router-dom";
 
 const MainCard = () => {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   // const [indexCop, setIndexCop] = useState(0);
   const handleSelect = (selectedIndex, e) => {
@@ -43,6 +45,7 @@ const MainCard = () => {
 
   const imgUrl = ["/images/dua1.jpg", "/images/dua2.jpg", "/images/dua3.jpg"];
   const username = "dualipaTest";
+  const userId = 765;
   const porfileImgUrl = "/images/profileImg.jpg";
   const postContents = "blabla 콘텐츠 내용 It’s giving Mother Nature 🤍🤍";
   const likeNum = (1683702)
@@ -85,17 +88,23 @@ const MainCard = () => {
   //     })
   //   }
   // }
-
+  const onClickProfile = (userId) =>{
+   navigate(`/mypage/${username}`)
+   console.log(userId)
+ }
+ 
   return (
     <>
       <div className="outLineSt">
         <div className="outTopSt">
-          <div className="inTopSt">
+          <div className="inTopSt" onClick={onClickProfile(userId)}>
+            <button >
             <img
               alt={`${username}님의 프로필 사진`}
               className="profile"
               src={porfileImgUrl}
             />
+            </button>
             <span>
               <strong>{username}</strong>
             </span>

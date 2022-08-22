@@ -1,16 +1,16 @@
 import React from 'react'
 import MainCard from '../components/MainCard'
 import Layout from '../components/layout/Layout'
-import Card from "react-bootstrap/Card";
-import "./mainpage.css";
+import Container from "react-bootstrap/Container"
+import "./css/mainpage.css";
 const MainPage = () => {
   return (
-    <Layout>
-    <Card className='cardMainAll'>
+    <Layout fluid>
+    <Container className='cardMainAll'>
       <MainCard/>
       <div className='miniCard'>
       </div>
-    </Card>
+    </Container>
    </Layout>
   )
 }

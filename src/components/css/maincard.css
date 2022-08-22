@@ -1,9 +1,13 @@
+button {
+    border: none;
+    background-color: transparent;
+}
 
 .outLineSt {
     width: 470px;
-    overflow-x:hidden;
+    overflow-x: hidden;
     border: solid #DBDBDB 1px;
-    border-radius: 15px; 
+    border-radius: 15px;
 }
 
 .outTopSt {
@@ -18,29 +22,29 @@
     position: absolute;
     top: 50%;
     transform: translate(0, -50%)
-    
-}
-.profile {
-     width: 37px;
-     height: 37px;
-     border-radius: 50%;
-     margin: 10px;
 }
 
-.outBottomSt{
+.profile {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.outBottomSt {
     width: 470px;
     height: 56px;
     display: inline-block;
 }
 
-.inBottomIndicatorSt{
-  /* margin: auto; */
-  text-align: center;
+.inBottomIndicatorSt {
+    /* margin: auto; */
+    text-align: center;
 }
 
 
 .indicatorSt {
-    color:#828282;
+    color: #828282;
     font-size: 10px;
     text-align: center;
 }
@@ -51,43 +55,43 @@
 
 .timeSt {
     font-size: 14px;
-    color:#828282;
+    color: #828282;
 }
 
-
-.inBottomSt>button{
+.inBottomSt>button {
     width: 40px;
     height: 40px;
     /* padding-top:15px; */
     padding-bottom: 15px;
-    border: none;
-    background-color: transparent;
+
 }
 
-.inBottomSt>button>svg:hover{
+.inBottomSt>button>svg:hover {
     opacity: 0.5;
 }
 
-.inBottomSt>button.heartfalse>svg:hover{
+.inBottomSt>button.heartfalse>svg:hover {
     animation: popping 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
 }
-.inBottomSt>button.hearttrue>svg{
+
+.inBottomSt>button.hearttrue>svg {
     /* transform: scale(1.25);
     transition: transform 0.4s; */
     animation: popping 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
     opacity: 1;
 }
 
-  
-  @keyframes popping {
+
+@keyframes popping {
     0% {
         transform: scale(1.25);
     }
+
     100% {
         transform: scale(1.0);
     }
-    
-  }
+
+}
 
 .outBottomComSt {
     padding: 0px 12px 12px 12px;
@@ -98,14 +102,14 @@
     width: 470px;
 }
 
-.carousel-control-prev-icon { 
-    background-image: url("../iconfolder/prev.svg"); 
- }
+.carousel-control-prev-icon {
+    background-image: url("../iconfolder/prev.svg");
+}
 
- .carousel-control-next-icon { 
-    background-image: url("../iconfolder/next.svg"); 
- }
+.carousel-control-next-icon {
+    background-image: url("../iconfolder/next.svg");
+}
 
- .carousel-indicators {
-    background-image: url("../iconfolder/next.svg"); 
- }
+.carousel-indicators {
+    background-image: url("../iconfolder/next.svg");
+}
