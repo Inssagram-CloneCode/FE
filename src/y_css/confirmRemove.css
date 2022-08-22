@@ -1,0 +1,39 @@
+.modal_board3{
+  width: 400px;
+  height: 201px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.8rem;
+  background-color: var(--color-background-light);
+}
+.confirm_remove_note{
+  height: 105px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.confirm_remove_note_top{
+  margin-bottom: 8px;
+  font-size: var(--font-18);
+  font-weight: 700;
+}
+.confirm_remove_note_bottom{
+  font-size: var(--font-14);
+  color: var(--color-gray);
+}
+.confirm_btn_remove{
+  width: 100%;
+  height: 48px;
+  border-top: 1px solid var(--color-line);
+  background-color: var(--color-background-light);
+  font-weight: 700;
+  color: var(--color-warn);
+}
+.confirm_btn_cancel{
+  width: 100%;
+  height: 48px;
+  border-top: 1px solid var(--color-line);
+  background-color: var(--color-background-light);
+  border-radius: 0px 0px 0.8rem 0.8rem;
+}
