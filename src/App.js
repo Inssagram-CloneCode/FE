@@ -8,7 +8,6 @@ import ModalTemplate from './components/modals/ModalTemplate';
 import './y_css/univ.css';
 
 
-// insta 주소와 유사하게 주소 지정하려함
 function App() {
 
   return (
@@ -17,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login /> } />
           <Route path='/' element={<MainPage /> } />
-          <Route path='/mypage/:userId' element={<MyPage/>} />
+          <Route path='/mypage/:username' element={<MyPage/>}/>
           <Route path='/accounts/edit' element={<AccountsEdit/>} />
         </Routes>
         <ModalTemplate />

@@ -1,0 +1,56 @@
+.mycard {
+    display: flexbox;
+      /* position the text in t’ middle*/
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 300px;
+      height: 300px;
+}
+
+.mycardImgDiv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* overflow:hidden; */
+    /* margin: 0 auto; */
+}
+
+.mycardImg {
+    z-index: 2;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* background-size:cover; */
+    background-position: center;
+}
+
+/* .mycardImg:hover {
+ filter: brightness(70%);
+ transform: scale(1.1);
+ transition: transform 0.3s;
+} */
+
+.mycardInfo{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: large;
+     font-weight: bold;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity .5s;
+        background:black;
+        color: white;
+}
+
+.mycardInfo:hover{
+    z-index: 3;
+    opacity: 0.55;
+    cursor: pointer;        
+}
