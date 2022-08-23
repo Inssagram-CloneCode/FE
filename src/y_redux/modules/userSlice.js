@@ -80,6 +80,8 @@ const userSlice = createSlice({
       // 위에 복잡해서 저 데이터 필요한고 cookie save 할게욤, 세세히 나눈것 대단함요
       setCookie('userId', action.payload.userId, token.accessTokenExpiresIn);
       setCookie('username', action.payload.username, token.accessTokenExpiresIn);
+      setLocal('email',action.payload.email);
+      setLocal('profileImgUrl',action.payload.profileImgUrl)
     });
     builder.addCase(loadUserThunk.rejected, (state, action) => {
       console.log('다시 해보자');
@@ -94,6 +96,8 @@ const userSlice = createSlice({
 
       deleteCookie('userId');
       deleteCookie('username');
+      clearLocal('email');
+      clearLocal('profileImgUrl');
     });
 
   }
