@@ -9,12 +9,11 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/esm/Container";
 
 
-const MyPage = ({ props }) => {
+const MyPage = () => {
   const cookie = getCookie("mytoken");
   const { username } = useParams();
-  console.log(props);
-  console.log(username);
   // const userId= useLocation().state.userId;
+  // console.log(userId);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // 데이터 불러오기

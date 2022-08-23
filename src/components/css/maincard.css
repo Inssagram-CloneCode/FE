@@ -8,6 +8,7 @@ button {
     overflow-x: hidden;
     border: solid #DBDBDB 1px;
     border-radius: 15px;
+    margin-bottom: 15px;
 }
 
 .outTopSt {
@@ -40,6 +41,7 @@ button {
 .inBottomIndicatorSt {
     /* margin: auto; */
     text-align: center;
+
 }
 
 

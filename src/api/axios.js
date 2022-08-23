@@ -61,7 +61,8 @@ const apis = {
     api.post(`/comments/${postId}`, payload),
     
     // 마이페이지에서 불러올 데이터
-    post_mypage: async () => await api.get("users/:userId")
+    post_mypage: async () => await api.get("users/:userId"),
+    
 
     // 회원 정보 수정에서 불러올 데이터 => 마이페이지에서 상속 받음
     // 프로필 사진 클릭시 불러올 데이터 => 마이페이지에서 상속, 정보 유지 프로필 사진만 변경

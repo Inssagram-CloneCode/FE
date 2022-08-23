@@ -1,3 +1,17 @@
+*::-webkit-scrollbar {
+  width: 15px; /* scroll width */
+}
+*::-webkit-scrollbar-thumb {
+  height: 30%; /* scrollbar height*/
+  background: #DBDBDB; /* scrollbar color */
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: none; /*scollbar background color*/
+}
+
+
+
 .cardMainAll {
     border: none;
     position: absolute;

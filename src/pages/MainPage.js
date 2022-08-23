@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import MainCard from '../components/MainCard'
 import Layout from '../components/layout/Layout'
@@ -7,6 +8,7 @@ import "./css/mainpage.css";
 
 
 const MainPage = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <Header />
