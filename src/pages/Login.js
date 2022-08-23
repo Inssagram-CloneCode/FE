@@ -73,45 +73,45 @@ const Login = () => {
       }
       <footer className="login_footer">
         <div className="login_top">
-          <a>
+          <span>
             <div>3조</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>소개</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>블로그</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>채용 정보</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>도움말</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>API</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>개인정보처리방침</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>약관</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>인기 계정</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>해시태그</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>위치</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>Inssagram Lite</div>
-          </a>
-          <a>
+          </span>
+          <span>
             <div>연락처 업로드 & 비사용자</div>
-          </a>
+          </span>
         </div>
         <div>한국어 © 2022 Inssagram from 3조</div>
       </footer>
