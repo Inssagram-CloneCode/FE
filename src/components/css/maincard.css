@@ -41,9 +41,7 @@ button {
 .inBottomIndicatorSt {
     /* margin: auto; */
     text-align: center;
-
 }
-
 
 .indicatorSt {
     color: #828282;
@@ -65,7 +63,6 @@ button {
     height: 40px;
     /* padding-top:15px; */
     padding-bottom: 15px;
-
 }
 
 .inBottomSt>button>svg:hover {
@@ -83,16 +80,13 @@ button {
     opacity: 1;
 }
 
-
 @keyframes popping {
     0% {
         transform: scale(1.25);
     }
-
     100% {
         transform: scale(1.0);
     }
-
 }
 
 .outBottomComSt {
@@ -109,9 +103,5 @@ button {
 }
 
 .carousel-control-next-icon {
-    background-image: url("../iconfolder/next.svg");
-}
-
-.carousel-indicators {
     background-image: url("../iconfolder/next.svg");
 }

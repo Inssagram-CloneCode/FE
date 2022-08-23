@@ -50,13 +50,13 @@ const MainCard = () => {
   const userId = 765;
   const porfileImgUrl = "/images/profileImg.jpg";
   const postContents = "blabla 콘텐츠 내용 It’s giving Mother Nature 🤍🤍";
-  const likeNum = (1683702)
+  const heartNum = (1683702)
     .toString()
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   const commentNum = (4438)
     .toString()
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  const [isLike, setLike] = useState(false);
+  const [isHeart, setHeart] = useState(false);
   const createdAt = timeForToday('2022-08-19 11:58');
   const [selected, setSelect] = useState('');
 
@@ -67,11 +67,11 @@ const MainCard = () => {
   // console.log(heartRef.current.classList)
   
   const heartOnClick = (e) => {
-    setLike(!isLike);
+    setHeart(!isHeart);
     setTimeout(() => {}, 100);
   };
   const HeartOnOff = () => {
-    return isLike ? <HeartOnSvg /> : <HeartOffSvg />;
+    return isHeart ? <HeartOnSvg /> : <HeartOffSvg />;
   };
 
   // const Indicator =  () => {
@@ -139,7 +139,7 @@ const MainCard = () => {
             })}
           </div>
           <div className="inBottomSt">
-            <button className={`heart${isLike}`} onClick={heartOnClick}>
+            <button className={`heart${isHeart}`} onClick={heartOnClick}>
               <HeartOnOff />
             </button>
             <button>
@@ -148,7 +148,7 @@ const MainCard = () => {
           </div>
         </div>
         <div className="outBottomComSt">
-          <strong>좋아요 {likeNum} 개</strong> <br />
+          <strong>좋아요 {heartNum} 개</strong> <br />
           <strong>{username}</strong> {postContents}
           <br />
           댓글 {commentNum}개 모두 보기

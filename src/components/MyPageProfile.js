@@ -17,7 +17,7 @@ export const MyPageProfile = ({ myData }) => {
   // console.log(userId);
   const profileImgUrl = "/images/henry.jpg";
   const postTotalNum = 470;
-  const likeTotalNum = (5643)
+  const heartTotalNum = (5643)
     .toString()
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
@@ -81,7 +81,7 @@ export const MyPageProfile = ({ myData }) => {
           <FixMyInfo myData={myData} />
           <h5>
             게시물 <strong>{postTotalNum}</strong> &nbsp; 좋아요{" "}
-            <strong>{likeTotalNum}</strong>
+            <strong>{heartTotalNum}</strong>
           </h5>
           <IntroDesc />
         </div>
