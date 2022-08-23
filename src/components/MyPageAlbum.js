@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-export const MyPageAlbum = () => {
+export const MyPageAlbum = ({contentList}) => {
 
     // 모달 관련
     const [show, setShow] = useState(false);
@@ -11,6 +11,7 @@ export const MyPageAlbum = () => {
       handleShow();
       // setPostId(postId);
     };
+
 
     
   return (

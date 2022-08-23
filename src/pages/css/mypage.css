@@ -1,3 +1,5 @@
+/* mypage myprofile============================================================ */
+
 .cardMyPageAll {
     border: none;
     position: absolute;
@@ -14,6 +16,7 @@
 
 .wrapProfile {
   display: flex;
+  align-items: center;
 }
 
 .wrapImgProfile {
@@ -21,13 +24,16 @@
   max-height: 284px;
   width: 291px;
   height: 284px;
-  display: inline;
+  display: flex;
+  align-items: center;
+  margin :10px;
 }
 
 .imgProfile {
   width: 166px;
   height: 166px;
   display: inline;
+
 }
 
 .expProfile {
@@ -37,3 +43,6 @@
 .nameProfile {
   height: 48px;
 }
+
+
+/* mypage myalbum ============================================================= */
