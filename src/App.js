@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path ='/' element={<MainPage/>} />
-      <Route path='/mypage/:userId' element={<MyPage/>}/>
+      <Route path='/mypage/:username' element={<MyPage/>}/>
       {/* <Route path='/mypage' element={<MyPage/>} /> */}
       <Route path='/accounts/edit' element={<AccountsEdit/>}/>
     </Routes>

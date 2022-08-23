@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import {useNavigate} from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 import {
   HeartOffSvg,
@@ -9,7 +10,6 @@ import {
 } from "../components/iconfolder/Icons";
 import "./css/maincard.css";
 import "../pages/css/mainpage.css";
-import { useNavigate } from "react-router-dom";
 
 const MainCard = () => {
   const navigate = useNavigate();
@@ -88,17 +88,15 @@ const MainCard = () => {
   //     })
   //   }
   // }
-  const onClickProfile = ({userId, e}) =>{
-   navigate(`/mypage/${username}`)
-   e.preventDefault()
-   console.log(userId)
+  const onClickProfile = () =>{
+   navigate(`/mypage/${username}`, {state: {userId: userId}})
  }
  
   return (
     <>
       <div className="outLineSt">
         <div className="outTopSt">
-          <div className="inTopSt" onClick={(e)=>onClickProfile({userId, e})}>
+          <div className="inTopSt" onClick={()=>onClickProfile()}>
             <button >
             <img
               alt={`${username}님의 프로필 사진`}
@@ -131,7 +129,6 @@ const MainCard = () => {
           <div className="inBottomIndicatorSt">
             {/* <Indicator/> */}
             {imgUrl.map((imgItem, idx) => {
-              // (index===idx)? setSelect('selectedSt') : setSelect('')
               return (
                 <span className={`indicatorSt ${selected}`} key={idx}>
                   ● &nbsp;

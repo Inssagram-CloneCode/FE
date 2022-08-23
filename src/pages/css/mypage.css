@@ -1,0 +1,39 @@
+.cardMyPageAll {
+    border: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  max-width: 975px;
+  width: 100%;
+}
+
+.contianProfile {
+  position: absolute;
+  top: 30%;
+}
+
+.wrapProfile {
+  display: flex;
+}
+
+.wrapImgProfile {
+  max-width: 291px;
+  max-height: 284px;
+  width: 291px;
+  height: 284px;
+  display: inline;
+}
+
+.imgProfile {
+  width: 166px;
+  height: 166px;
+  display: inline;
+}
+
+.expProfile {
+  display: inline;
+}
+
+.nameProfile {
+  height: 48px;
+}
