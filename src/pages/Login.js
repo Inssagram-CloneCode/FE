@@ -1,15 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginUserThunk } from '../y_redux/modules/userSlice';
 import Signup from '../components/login/Signup';
 import '../y_css/login.css';
-
 import logoImg from '../asset/instaLogo.png'
 
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userData = useSelector((state) => state.user.userData);
+  useEffect(() => {
+    if(userData.userId !== undefined){
+      navigate('/');
+    }
+  },[userData, navigate])
+
   const [isLogin, setIsLogin] = useState(false);
   const toggleIsLogin = () => {
     setIsLogin(!isLogin);
   }
+
+  // 로그인 관련
+  const loginIdRef = useRef(null);
+  const loginPwRef = useRef(null);
+  const doLogin = () => {
+    const loginIdValue = loginIdRef.current.value;
+    const loginPwValue = loginPwRef.current.value;
+
+    const loginData = {
+      "email": loginIdValue,
+      "password": loginPwValue
+    }
+
+    dispatch(loginUserThunk(loginData));
+    loginIdRef.current.value = '';
+    loginPwRef.current.value = '';
+  }
+
 
   return(
     <div className="page">
@@ -20,9 +49,9 @@ const Login = () => {
         <div className="login">
           <div className="login_form">
             <img src={logoImg} alt="logo" />
-            <input type="text" placeholder='전화번호, 사용자 이름 또는 이메일'/>
-            <input type="password" placeholder='비밀번호' />
-            <button className="login_submit">로그인</button>
+            <input ref={loginIdRef} type="text" placeholder='전화번호, 사용자 이름 또는 이메일'/>
+            <input ref={loginPwRef} type="password" placeholder='비밀번호' />
+            <button className="login_submit" onClick={doLogin}>로그인</button>
             <div className="login_sep">
               ---------------------  또는  ---------------------
             </div>
