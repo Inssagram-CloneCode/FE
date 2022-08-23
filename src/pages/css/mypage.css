@@ -38,11 +38,22 @@
 }
 
 .expProfile {
-  display: inline;
+  display: inline-flexbox;
+  align-items: center;
 }
 
 .nameProfile {
+  display: inline-block;
   height: 48px;
+  margin-bottom: 10px;
+}
+
+.fixMyInfo {
+  display: inline-block;
+  font-size: var(--font-14);
+  border: 0.5px solid  var(--color-line);
+  border-radius: 7px;
+  margin-bottom: 10px;
 }
 
 
@@ -51,4 +62,3 @@
 
 
 
-/* mypage myalbum cardImage============================================================= */

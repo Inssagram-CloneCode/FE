@@ -10,6 +10,7 @@ import {
 } from "../components/iconfolder/Icons";
 import "./css/maincard.css";
 import "../pages/css/mainpage.css";
+import CommentInput from "./modals/eachBlock/CommentInputBox";
 
 const MainCard = () => {
   const navigate = useNavigate();
@@ -19,6 +20,9 @@ const MainCard = () => {
     setIndex(selectedIndex);
     // console.log(selectedIndex);
   };
+
+
+
 
   const timeForToday = (value) => {
     const today = new Date();
@@ -152,7 +156,7 @@ const MainCard = () => {
           댓글 {commentNum}개 모두 보기
           <br />
           <span className="timeSt">{createdAt}</span>
-          {/* 영동님 댓글 컴포넌트 추가되는 부분  */}
+          <CommentInput/>
         </div>
       </div>
       <div className="outInputSt"></div>

@@ -19,7 +19,7 @@ function App() {
           <Route path='/mypage/:username' element={<MyPage/>}/>
           <Route path='/accounts/edit' element={<AccountsEdit/>} />
         </Routes>
-        <ModalTemplate />
+        {/* <ModalTemplate /> */}
       </Router>
     </div>
   );
