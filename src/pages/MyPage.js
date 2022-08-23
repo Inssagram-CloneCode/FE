@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from '../components/Header';
 import { getCookie } from "../shared/Cookie";
 import { useParams, useLocation } from "react-router-dom";
 import { MyPageAlbum } from "../components/MyPageAlbum";
@@ -21,7 +22,6 @@ const MyPage = ({ props }) => {
   }, []);
   // redux 에서 저장한 데이터 꺼내오던지, 바로 불러와서 사용하던지
  const myData = [];
-
   const contentList = [
     {
       postId: 1,
@@ -117,10 +117,13 @@ const MyPage = ({ props }) => {
   ];
 
   return (
+  <>
+    <Header />
     <Container className="cardMyPageAll">
       <MyPageProfile myData={myData} />
       <MyPageAlbum contentList={contentList} />
     </Container>
+  </>
   );
 };
 

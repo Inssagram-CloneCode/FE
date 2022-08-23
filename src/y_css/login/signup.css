@@ -1,0 +1,102 @@
+.signup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signup_form{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 36px 0px 32px 0px;
+  align-items: center;
+  margin-top: 34px;
+  margin-bottom: 10px;
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-gray-week);
+}
+.signup_form img{
+  width: 175px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+.signup_form .signup_note{
+  width: 268px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: var(--font-17);
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-gray);
+}
+.signup_form .facebook{
+  width: 268px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 40px;
+  background-color: var(--color-blue);
+  border-radius: 0.3rem;
+  color: var(--color-background-light);
+  font-weight: 500;
+  font-size: var(--font-14);
+}
+.signup_sep{
+  margin: 10px 40px 14px;
+  font-size: var(--font-12);
+}
+.signup_form input{
+  width: 268px;
+  height: 38px;
+  margin-bottom: 6px;
+  padding: 9px 0 7px 8px;
+  border: 1px solid var(--color-gray-week);
+  font-size: var(--font-12);
+  border-radius: 0.3rem;
+  background-color: var(--color-background);
+}
+.signup_form input::placeholder{
+  color: var(--color-gray);
+}
+.signup_note_2{
+  width: 268px;
+  height: 38px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  text-align: center;
+  line-height: 16px;
+  font-size: var(--font-12);
+  color: var(--color-gray);
+}
+.signup_form .signup_submit{
+  width: 268px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 40px;
+  border-radius: 0.2rem;
+  background-color: var(--color-skyblue);
+  color: var(--color-background-light);
+}
+.signup_to_login{
+  width: 350px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+  font-size: var(--font-14);
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-gray-week);
+}
+.signup_to_login span{
+  margin-left: 4px;
+  font-weight: 500;
+  color: var(--color-blue);
+}

@@ -1,0 +1,29 @@
+.post_footer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid var(--color-line);
+}
+.post_footer_btns{
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+.post_footer_btns div{
+  display: flex;
+}
+
+.post_footer_likecnt{
+  height: 26px;
+  margin-bottom: 4px;
+  padding: 0px 16px;
+  font-size: var(--font-16);
+}
+.post_footer_time{
+  height: 20px;
+  margin-bottom: 14px;
+  padding: 0px 16px;
+  font-size: var(--font-10);
+}

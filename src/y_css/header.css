@@ -1,0 +1,71 @@
+.header{
+  width: 100vw;
+  height: 60px;
+  border-bottom: 1.5px solid var(--color-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_content{
+  width: calc(1000px + 20px);
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+}
+.header_logo{
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header_logo img{
+  width: 102px;
+  height: auto;
+}
+.header_logo button{
+  height: 36px;
+  width: 28px;
+}
+.header_search{
+  flex-grow: 1.7;
+  min-width: 236px;;
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  border-radius: 0.5rem;
+  background-color: var(--color-line);
+}
+.header_search_box{
+  width: 268px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+.header_search div{
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.header_search input{
+  width: 236px;
+  height: 25px;
+  padding-left: 12px;
+  background-color: var(--color-line);
+}
+.header_btns{
+  flex-grow: 0.8;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header_btns .univ_btn{
+  margin-left: 8px;
+}
+.header_btns .univ_profile{
+  width: 32px;
+  height: 32px;
+  margin-left: 8px;
+}
