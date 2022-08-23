@@ -127,3 +127,81 @@ export const MoreSvg = () => {
     </svg>
   );
 };
+
+export const SlideSvg = () => {
+  <svg
+    aria-label="슬라이드"
+    class="_ab6-"
+    color="#ffffff"
+    fill="#ffffff"
+    height="22"
+    role="img"
+    viewBox="0 0 48 48"
+    width="22"
+  >
+    <path d="M34.8 29.7V11c0-2.9-2.3-5.2-5.2-5.2H11c-2.9 0-5.2 2.3-5.2 5.2v18.7c0 2.9 2.3 5.2 5.2 5.2h18.7c2.8-.1 5.1-2.4 5.1-5.2zM39.2 15v16.1c0 4.5-3.7 8.2-8.2 8.2H14.9c-.6 0-.9.7-.5 1.1 1 1.1 2.4 1.8 4.1 1.8h13.4c5.7 0 10.3-4.6 10.3-10.3V18.5c0-1.6-.7-3.1-1.8-4.1-.5-.4-1.2 0-1.2.6z"></path>
+  </svg>;
+};
+
+// 하얀색 하트
+export const HeartFillSvg = () => {
+ return (
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={24}
+  height={24}
+  viewBox="0 0 640 640"
+  xmlSpace="preserve"
+>
+  <path
+    style={{
+      stroke: "none",
+      strokeWidth: 1,
+      strokeDasharray: "none",
+      strokeLinecap: "butt",
+      strokeDashoffset: 0,
+      strokeLinejoin: "miter",
+      strokeMiterlimit: 4,
+      fill: "#fefffe",
+      fillRule: "nonzero",
+      opacity: 1,
+    }}
+    vectorEffect="non-scaling-stroke"
+    transform="matrix(7.97 0 0 7.97 .85 9.37)"
+    d="M60 4.346c11 0 20 9.627 20 21.392 0 32.712-40 49.024-40 49.915 0-.89-40-17.113-40-49.915C0 13.884 9 4.346 20 4.346c11.1 0 20 6.489 20 18.343 0-11.854 8.9-18.343 20-18.343z"
+  />
+</svg>
+ )
+};
+
+// 하얀색 말풍선
+
+export const ChatFillSvg = () => {
+  return(
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    viewBox="0 0 640 640"
+    xmlSpace="preserve"
+  >
+    <path
+      style={{
+        stroke: "none",
+        strokeWidth: 1,
+        strokeDasharray: "none",
+        strokeLinecap: "butt",
+        strokeDashoffset: 0,
+        strokeLinejoin: "miter",
+        strokeMiterlimit: 4,
+        fill: "#fff",
+        fillRule: "nonzero",
+        opacity: 1,
+      }}
+      vectorEffect="non-scaling-stroke"
+      transform="matrix(-10.61 0 0 10.61 638.996 2.094)"
+      d="M42.008 0h-24c-9.925 0-18 8.075-18 18v14c0 9.925 8.075 18 18 18h1.78c6.968 0 13.519 2.713 18.446 7.64l1.876 1.877c.322.321.746.498 1.195.498.938 0 1.702-.762 1.702-1.699v-8.344c9.462-.521 17-8.383 17-17.973V18c.001-9.925-8.075-18-17.999-18z"
+    />
+  </svg>
+  )
+}

@@ -5,13 +5,14 @@ import Image from "react-bootstrap/Image";
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
 
-export const MyPageProfile = () => {
+export const MyPageProfile = ({myData}) => {
   const { username } = useParams();
   const userId = useLocation().state.userId;
   // console.log(userId);
   const profileImgUrl = "/images/henry.jpg";
   const postTotalNum = 470;
-  const likeTotalNum = 5643;
+  const likeTotalNum = (5643).toString()
+  .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   const IntroDesc = () => {
     return (
       <div>

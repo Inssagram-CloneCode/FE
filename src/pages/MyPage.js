@@ -20,6 +20,8 @@ const MyPage = ({ props }) => {
     }
   }, []);
   // redux 에서 저장한 데이터 꺼내오던지, 바로 불러와서 사용하던지
+ const myData = [];
+
   const contentList = [
     {
       postId: 1,
@@ -116,7 +118,7 @@ const MyPage = ({ props }) => {
 
   return (
     <Container className="cardMyPageAll">
-      <MyPageProfile />
+      <MyPageProfile myData={myData} />
       <MyPageAlbum contentList={contentList} />
     </Container>
   );

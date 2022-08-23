@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CardImg from 'react-bootstrap/esm/CardImg';
+import MyCard from './MyCard';
 export const MyPageAlbum = ({contentList}) => {
 
     // 모달 관련
@@ -9,12 +11,25 @@ export const MyPageAlbum = ({contentList}) => {
     const handleClose = () => setShow(false);
     const handleModal = (postId) => {
       handleShow();
-      // setPostId(postId);
     };
 
-
+  // console.log(contentList);
     
   return (
-    <div>MyPageAlbum</div>
+    <div>
+        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-3 g-3'>
+              {contentList.map((post) => (
+                <div key={post.postId}>
+                  <MyCard
+                    post = {post}
+                    show={show}
+                    handleShow={handleShow}
+                    handleClose={handleClose}
+                  />
+                </div>
+              ))}
+            </div>
+
+    </div>
   )
 }
