@@ -3,6 +3,9 @@ import { getCookie } from "../shared/Cookie";
 
 
 // 1. Axios instance생성
+
+const base_url = "http://52.78.235.109/api"
+
 export const api =  axios.create({
   baseURL: "http://localhost/3001",
   credentials: true,

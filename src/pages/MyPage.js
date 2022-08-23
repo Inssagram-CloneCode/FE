@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from '../components/Header';
-import { getCookie } from "../shared/Cookie";
+import { getCookie } from "../shared/cookie";
 import { useParams, useLocation } from "react-router-dom";
 import { MyPageAlbum } from "../components/MyPageAlbum";
 import { MyPageProfile } from "../components/MyPageProfile";
@@ -8,9 +8,12 @@ import "./css/mypage.css";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/esm/Container";
 
+
 const MyPage = ({ props }) => {
-  const cookie = getCookie("accessToken");
+  const cookie = getCookie("mytoken");
   const { username } = useParams();
+  console.log(props);
+  console.log(username);
   // const userId= useLocation().state.userId;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

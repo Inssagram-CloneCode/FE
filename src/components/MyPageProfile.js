@@ -31,25 +31,25 @@ export const MyPageProfile = ({ myData }) => {
   };
 
   // 파일 유효성 검사를 해주고, db에 전송해줘야하나 그냥 전송
-  const onChangePic = ({e, profileImgUrl}) => {
+  const onChangePic = ({ e, profileImgUrl }) => {
     const reader = new FileReader();
-    if(e.target.files[0]) {
+    if (e.target.files[0]) {
       reader.onload = () => {
-        if(reader.readyState === 2){
-          setImg(reader.result)
+        if (reader.readyState === 2) {
+          setImg(reader.result);
           setPic(e.target.files[0]);
         }
-      }
-      reader.readAsDataURL(e.target.files[0])
+      };
+      reader.readAsDataURL(e.target.files[0]);
     }
   };
 
   const FixMyInfo = ({ myData }) => {
-    return(
-     <button className='fixMyInfo' onClick={()=>navigate('/accounts/edit') }>
-       프로필 편집
-     </button>
-    )
+    return (
+      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{myData: myData}})}>
+        프로필 편집
+      </button>
+    );
   };
 
   return (
@@ -59,7 +59,9 @@ export const MyPageProfile = ({ myData }) => {
         style={{ display: "none" }}
         accept="image/jpg,impge/png,image/jpeg"
         name="profile_img"
-        onChange={(e)=>{onChangePic({e,profileImgUrl})}}
+        onChange={(e) => {
+          onChangePic({ e, profileImgUrl });
+        }}
         ref={picRef}
       />
       <div className="wrapProfile">
@@ -70,13 +72,13 @@ export const MyPageProfile = ({ myData }) => {
             fluid
             roundedCircle
             thumbnail
-            src={showImg?showImg:profileImgUrl}
-            onClick={()=>picRef.current.click()}
-          /> 
+            src={showImg ? showImg : profileImgUrl}
+            onClick={() => picRef.current.click()}
+          />
         </div>
         <div className="expProfile">
-          <h3 className="nameProfile">{username}</h3>  &nbsp; 
-            <FixMyInfo myData={myData}/>
+          <h3 className="nameProfile">{username}</h3> &nbsp;
+          <FixMyInfo myData={myData} />
           <h5>
             게시물 <strong>{postTotalNum}</strong> &nbsp; 좋아요{" "}
             <strong>{likeTotalNum}</strong>
