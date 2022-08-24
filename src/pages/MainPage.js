@@ -13,7 +13,7 @@ const MainPage = () => {
       <Header />
       <Layout fluid>
         <Container className="cardMainAll">
-          <MainCard />
+          <MainCard /> <MainCard /> <MainCard /> <MainCard />
           <div className="miniCard"></div>
         </Container>
       </Layout>

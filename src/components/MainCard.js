@@ -12,6 +12,7 @@ import CommentInput from "./modals/eachBlock/CommentInputBox";
 import { commaForNum, timeForToday } from "./funcs";
 import "./css/maincard.css";
 import "../pages/css/mainpage.css";
+import Image from "react-bootstrap/esm/Image";
 
 const MainCard = () => {
   const navigate = useNavigate();
@@ -19,13 +20,21 @@ const MainCard = () => {
   // const [indexCop, setIndexCop] = useState(0);
   const [selected, setSelect] = useState('');
 
+  useEffect(() => {
+      
+    
+  }, [])
+  
+
+
+
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
     // console.log(selectedIndex);
   };
 
+  // const imgUrl = ["/images/dua1.jpg"];
   const imgUrl = ["/images/dua1.jpg", "/images/dua2.jpg", "/images/dua3.jpg"];
-  // const imgUrl = ["/images/dua1.jpg", "/images/dua2.jpg", "/images/dua3.jpg"];
   const username = "dualipaTest";
   const userId = 765;
   const porfileImgUrl = "/images/profileImg.jpg";
@@ -53,9 +62,9 @@ const MainCard = () => {
    navigate(`/mypage/${username}`, {state: {userId: userId}})
  }
 
- const ImageBox = (imageUrl) => {
-  return (imageUrl.length===1?
-   <image className="imageShow" src={imageUrl[0]} />
+ const ImageBox = () => {
+  return ((imgUrl?.length===1)?
+   (<Image className="imageShow" src={imgUrl[0]} />) 
    :
    (<Carousel
     interval={null}
@@ -63,7 +72,7 @@ const MainCard = () => {
     activeIndex={index}
     onSelect={handleSelect}
   >
-    {imgUrl.map((imgItem, idx) => {
+    {imgUrl?.map((imgItem, idx) => {
       return (
         <Carousel.Item key={idx}>
           <img className="d-block w-100" src={imgItem} alt={idx} />
@@ -105,10 +114,10 @@ const MainCard = () => {
           </div>
         </div>
         <div className="outBottomComSt">
-          <strong>좋아요 {heartNum} 개</strong> <br />
-          <strong>{username}</strong> {postContents}
+          <span><strong>좋아요 {heartNum} 개</strong></span> <br />
+          <span><strong>{username}</strong> {postContents}</span>
           <br />
-          댓글 {commentNum}개 모두 보기
+          <span>댓글 {commentNum}개 모두 보기</span>
           <br />
           <span className="timeSt">{createdAt}</span>
           <hr/>
