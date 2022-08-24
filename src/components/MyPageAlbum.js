@@ -12,12 +12,9 @@ export const MyPageAlbum = ({contentList}) => {
     const handleModal = (postId) => {
       handleShow();
     };
-
   // console.log(contentList);
-    
   return (
-    <div>
-        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-3 g-3'>
+        <div className='row row-cols-3 row-cols-md-2 row-cols-lg-3 row-cols-xxl-3 g-3'>
               {contentList.map((post) => (
                 <div key={post.postId}>
                   <MyCard
@@ -29,7 +26,5 @@ export const MyPageAlbum = ({contentList}) => {
                 </div>
               ))}
             </div>
-
-    </div>
   )
 }

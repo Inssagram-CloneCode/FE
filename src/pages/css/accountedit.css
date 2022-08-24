@@ -1,0 +1,100 @@
+.accEditOut {
+    background-color: var(--color-background);
+    height: 100%;
+}
+
+.accEditCon {
+    display: flex;
+    margin-top: 60px;
+    width: 932px;
+    height: 700px;
+    flex-flow: row nowrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
+    /* margin: auto; */
+}
+
+.accEditSide {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    flex-basis: 31.5%;
+    border: 1px solid var(--color-line);
+}
+
+.accEditSide * {
+    height: 52px;
+    line-height: 52px;
+    padding-left: 20px;
+}
+
+.accEditSide *:hover {
+    background-color: var(--color-background);
+}
+
+.accEditArea {
+    display: flexbox;
+    width: 100%;
+    flex-basis: 67.5%;
+    background-color: white;
+    vertical-align: middle;
+    /* justify-content: center; */
+}
+
+.accEditPic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: none;
+}
+
+table,
+tr,
+th * {
+    vertical-align: middle;
+}
+
+.accEdit-th-1-1 {
+    text-align: right;
+}
+
+.accEdit-sp {
+    font-size: var(--font-14);
+    color: var(--color-blue);
+    padding: none;
+}
+
+.accEdit-th-2-1 {
+    text-align: right;
+}
+
+input {
+    border: solid var(--color-line) 1px;
+}
+
+.accEdit-th-3-1 {
+    text-align: right;
+}
+
+.accEdit-textAreaPart {
+    height: 150px;
+}
+
+.accEdit-intro {
+    width: 370px;
+    height: 145px;
+}
+
+.accEditBtnWrap {
+    text-align: center;
+    align-items: baseline;
+}
+
+.accEditBtn {
+    color: white;
+    background-color: var(--color-blue);
+    border: 1px solid var(--color-line);
+    border-radius: 5px;
+    padding: 7px;
+}

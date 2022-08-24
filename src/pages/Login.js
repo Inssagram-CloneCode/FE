@@ -11,11 +11,11 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.user.userData);
-  useEffect(() => {
-    if(userData.userId !== undefined){
-      navigate('/');
-    }
-  },[userData, navigate])
+  // useEffect(() => {
+  //   if(userData.userId !== undefined){
+  //     navigate('/');
+  //   }
+  // },[userData, navigate])
 
   const [isLogin, setIsLogin] = useState(false);
   const toggleIsLogin = () => {

@@ -2,12 +2,21 @@ import React, { useState, useRef } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
+import { commaForNum } from "./funcs";
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
+
 
 export const MyPageProfile = ({ myData }) => {
   const navigate = useNavigate();
   const { username } = useParams();
+  
+  // mypage의 myData에서 cookie에 저장된 userId가 일치하면,
+  // local storage에 저장한 이메일 가져와 담아서 넘겨주기
+  // or redux에서 저장된 값 가져와서 일치여부 확인 후 넘겨주기
+  // or 유저정보 재요청
+
+ const userData = {...myData, email:"tester@inssagram.com"}
   const picRef = useRef();
   // 새로 보내줄 사진 데이터
   const [newPic, setPic] = useState();
@@ -15,17 +24,16 @@ export const MyPageProfile = ({ myData }) => {
   const [showImg, setImg] = useState();
   // const userId = useLocation().state.userId;
   // console.log(userId);
-  const profileImgUrl = "/images/henry.jpg";
-  const postTotalNum = 470;
-  const heartTotalNum = (5643)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
-  const IntroDesc = () => {
+  const profileImgUrl = myData.profileImgUrl;
+  const postTotalNum = myData.postTotalNum;
+  const heartTotalNum = myData.heartTotalNum;
+  const intro =  myData.intro;
+
+  const IntroDesc = ({intro}) => {
     return (
       <div>
-        Henry Lau 헨리
-        <br /> Monster Entertainment Group <br /> youtu.be/txCr13nL3Ec
+        {intro}
       </div>
     );
   };
@@ -44,9 +52,10 @@ export const MyPageProfile = ({ myData }) => {
     }
   };
 
-  const FixMyInfo = ({ myData }) => {
+  const FixMyInfo = () => {
+    // console.log(myData);
     return (
-      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{myData: myData}})}>
+      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData}})}>
         프로필 편집
       </button>
     );
@@ -78,12 +87,12 @@ export const MyPageProfile = ({ myData }) => {
         </div>
         <div className="expProfile">
           <h3 className="nameProfile">{username}</h3> &nbsp;
-          <FixMyInfo myData={myData} />
+          <FixMyInfo />
           <h5>
             게시물 <strong>{postTotalNum}</strong> &nbsp; 좋아요{" "}
             <strong>{heartTotalNum}</strong>
           </h5>
-          <IntroDesc />
+          <IntroDesc intro={intro}/>
         </div>
       </div>
       <hr />

@@ -1,64 +1,39 @@
 import React, { useEffect, useRef, useState } from "react";
 import {useNavigate} from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import {
+  EmojiSvg,
   HeartOffSvg,
   HeartOnSvg,
   ReplySvg,
 } from "../components/iconfolder/Icons";
+import CommentInput from "./modals/eachBlock/CommentInputBox";
+import { commaForNum, timeForToday } from "./funcs";
 import "./css/maincard.css";
 import "../pages/css/mainpage.css";
-import CommentInput from "./modals/eachBlock/CommentInputBox";
 
 const MainCard = () => {
   const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   // const [indexCop, setIndexCop] = useState(0);
+  const [selected, setSelect] = useState('');
+
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
     // console.log(selectedIndex);
   };
 
-
-  const timeForToday = (value) => {
-    const today = new Date();
-    const timeValue = new Date(value);
-
-    const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
-    if (betweenTime < 1) return '방금 전';
-    if (betweenTime < 60) {
-        return `${betweenTime}분 전`;
-    }
-
-    const betweenTimeHour = Math.floor(betweenTime / 60);
-    if (betweenTimeHour < 24) {
-        return `${betweenTimeHour}시간 전`;
-    }
-
-    const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
-    if (betweenTimeDay < 365) {
-        return `${betweenTimeDay}일 전`;
-    }
-
-    return `${Math.floor(betweenTimeDay / 365)}년 전`;
-}
-
   const imgUrl = ["/images/dua1.jpg", "/images/dua2.jpg", "/images/dua3.jpg"];
+  // const imgUrl = ["/images/dua1.jpg", "/images/dua2.jpg", "/images/dua3.jpg"];
   const username = "dualipaTest";
   const userId = 765;
   const porfileImgUrl = "/images/profileImg.jpg";
   const postContents = "blabla 콘텐츠 내용 It’s giving Mother Nature 🤍🤍";
-  const heartNum = (1683702)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  const commentNum = (4438)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   const [isHeart, setHeart] = useState(false);
+  const heartNum = commaForNum(1683702)
+  const commentNum = commaForNum(4438)
   const createdAt = timeForToday('2022-08-19 11:58');
-  const [selected, setSelect] = useState('');
 
   // const [heartStatus, setHeart] = useState(false);
   // const heartRef = useRef();
@@ -74,24 +49,29 @@ const MainCard = () => {
     return isHeart ? <HeartOnSvg /> : <HeartOffSvg />;
   };
 
-  // const Indicator =  () => {
-  //   if (imgUrl.length===0){
-  //     return <></>
-  //   }else{
-  //     imgUrl.map((imgItem, idx) => {
-  //       (index===idx) ? setSelect('selectedSt') : setSelect('');
-  //       // setIndexCop(idx); 
-  //       console.log('두번째',idx)
-  //       return (
-  //         <span className={`indicatorSt ${selected}`} key={idx}>
-  //           ● &nbsp;
-  //         </span>
-  //       );
-  //     })
-  //   }
-  // }
   const onClickProfile = () =>{
    navigate(`/mypage/${username}`, {state: {userId: userId}})
+ }
+
+ const ImageBox = (imageUrl) => {
+  return (imageUrl.length===1?
+   <image className="imageShow" src={imageUrl[0]} />
+   :
+   (<Carousel
+    interval={null}
+    indicators={true}
+    activeIndex={index}
+    onSelect={handleSelect}
+  >
+    {imgUrl.map((imgItem, idx) => {
+      return (
+        <Carousel.Item key={idx}>
+          <img className="d-block w-100" src={imgItem} alt={idx} />
+        </Carousel.Item>
+      );
+    })}
+  </Carousel>)
+  )
  }
  
   return (
@@ -112,32 +92,9 @@ const MainCard = () => {
           </div>
         </div>
         <div className="outCardSt">
-          <Carousel
-            interval={null}
-            indicators={false}
-            activeIndex={index}
-            onSelect={handleSelect}
-          >
-            {imgUrl.map((imgItem, idx) => {
-              return (
-                <Carousel.Item key={idx}>
-                  <img className="d-block w-100" src={imgItem} alt={idx} />
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
+         <ImageBox/>
         </div>
         <div className="outBottomSt">
-          <div className="inBottomIndicatorSt">
-            {/* <Indicator/> */}
-            {imgUrl.map((imgItem, idx) => {
-              return (
-                <span className={`indicatorSt ${selected}`} key={idx}>
-                  ● &nbsp;
-                </span>
-              );
-            })}
-          </div>
           <div className="inBottomSt">
             <button className={`heart${isHeart}`} onClick={heartOnClick}>
               <HeartOnOff />
@@ -154,7 +111,11 @@ const MainCard = () => {
           댓글 {commentNum}개 모두 보기
           <br />
           <span className="timeSt">{createdAt}</span>
-          <CommentInput/>
+          <hr/>
+          <div className="comment-input-box"> <EmojiSvg/>
+        <input className="comment-input" type="text" placeholder="댓글 달기..." />
+        <button className="comment-btn">게시</button>
+      </div>
         </div>
       </div>
       <div className="outInputSt"></div>
