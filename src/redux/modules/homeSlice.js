@@ -60,7 +60,7 @@ const homeSlice = createSlice({
     });
     builder.addCase(getAllThunk.fulfilled, (state, action) => {
       console.log("extraReducers fulfilled!", action.payload);
-      state.posts = action.payload;
+      state.postList = action.payload;
     });
   },
 });

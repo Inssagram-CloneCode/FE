@@ -22,12 +22,13 @@ const MainCard = ({ post }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const commentList = useSelector((state) => state.home.commentList);
-  const username = getCookie('username'); // 추후 변경 가능성 존재
+  const usernameMe = getCookie('username'); // 추후 변경 가능성 존재
   const comRef = useRef();
   const [index, setIndex] = useState(0);
   // const [indexCop, setIndexCop] = useState(0);
   const [commentStatus, setComment] = useState("");
 
+  
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -35,15 +36,16 @@ const MainCard = ({ post }) => {
   };
 
   // const imgUrl = ["/images/dua1.jpg"];
-  const imgUrl = ["/images/dua1.jpg", "/images/dua2.jpg", "/images/dua3.jpg"];
-  const userId = 765;
-  const porfileImgUrl = "/images/profileImg.jpg";
-  const postContents = "blabla 콘텐츠 내용 It’s giving Mother Nature 🤍🤍";
+  const imageUrlList = post.imageUrlList;
+  const username = post.user.username;
+  const userId = post.user.userId;
+  const porfileImgUrl = post.user.profileImgUrl;
+  const postContents = post.postContents;
   const [isHeart, setHeart] = useState(false);
   // const commentList = [{username: '사용자1', commentContents:'blablanames'},{username: '사용자2', commentContents:'blablanames2222222222222222'}]
-  const heartNum = commaForNum(1683702);
-  const commentNum = commaForNum(4438);
-  const createdAt = timeForToday("2022-08-19 11:58");
+  const heartNum = commaForNum(post.heartNum);
+  const commentNum = commaForNum(post.commentNum);
+  const createdAt = timeForToday(post.createdAt);
 
   // const [heartStatus, setHeart] = useState(false);
   // const heartRef = useRef();
@@ -66,7 +68,7 @@ const MainCard = ({ post }) => {
     const newComment = {
       // postId : post.postId,
       postId : 1,
-      username : username,
+      username : usernameMe,
       commentContents: comRef.current.value
     }
     dispatch(addComment(newComment));
@@ -75,13 +77,13 @@ const MainCard = ({ post }) => {
   
   useEffect(() => {
   
-
+    console.log('maincard', {post});
 
   }, []);
 
   const ImageBox = () => {
-    return imgUrl?.length === 1 ? (
-      <Image className="imageShow" src={imgUrl[0]} />
+    return imageUrlList?.length === 1 ? (
+      <Image className="imageShow" src={imageUrlList[0]} />
     ) : (
       <Carousel
         interval={null}
@@ -89,7 +91,7 @@ const MainCard = ({ post }) => {
         activeIndex={index}
         onSelect={handleSelect}
       >
-        {imgUrl?.map((imgItem, idx) => {
+        {imageUrlList?.map((imgItem, idx) => {
           return (
             <Carousel.Item key={idx}>
               <img className="d-block w-100" src={imgItem} alt={idx} />

@@ -13,7 +13,10 @@ const MainPage = () => {
   const dispatch = useDispatch();
   
   // const postList = [1,2,3,4,5];
-  const postList =  useSelector((state) => state.postList);
+  // const state =  useSelector((state) => state);
+  // console.log('mainPagestate',state)
+  const postList =  useSelector((state) => state.home.postList);
+  console.log('mainPage',postList)
   useEffect(() => {
     dispatch(getAllThunk());
 
