@@ -21,12 +21,14 @@ import { getCookie } from "../shared/cookie";
 const MainCard = ({ post }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const commentList = useSelector((state) => state.home.commentList);
+  const commentList = post.commentList;
+
+  const [commentStatus, setComment] = useState("");
+  // const commentList = useSelector((state) => state.home.commentList);
   const usernameMe = getCookie('username'); // 추후 변경 가능성 존재
   const comRef = useRef();
   const [index, setIndex] = useState(0);
   // const [indexCop, setIndexCop] = useState(0);
-  const [commentStatus, setComment] = useState("");
 
   
 
@@ -149,7 +151,7 @@ const MainCard = ({ post }) => {
             return (
               <Fragment key={idx}>
                 <span>
-                  <strong>{c["username"]}</strong> &nbsp;
+                  <strong>{c.user.username}</strong> &nbsp;
                   {c["commentContents"]}
                 </span>
                 <br />

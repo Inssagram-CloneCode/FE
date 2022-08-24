@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllThunk } from "../asyncThunk/homeThunk";
+import { addCommentThunk, getAllThunk } from "../asyncThunk/homeThunk";
 
 // slice 내에선 getState()
 const initialState = {
@@ -55,13 +55,22 @@ const homeSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getAllThunk.pending, (state, action) => {
-      console.log("extraReducers pending...", action.payload);
-      state.nowStatus = "Loading";
+      // console.log("extraReducers pending...", action.payload);
+      state.nowStatus = "pending";
     });
     builder.addCase(getAllThunk.fulfilled, (state, action) => {
       console.log("extraReducers fulfilled!", action.payload);
       state.postList = action.payload;
+      state.nowStatus = "fulfilled, getAll";
+      // state.commentList = action.payload.commentList
     });
+    builder.addCase(addCommentThunk.fulfilled, (state, action) => {
+      console.log("extraReducers fulfilled!", action.payload);
+      state.postList = action.payload;
+      state.nowStatus = "fulfilled, getAll";
+      // state.commentList = action.payload.commentList
+    });
+    
   },
 });
 
