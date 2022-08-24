@@ -59,7 +59,7 @@ const homeSlice = createSlice({
       state.nowStatus = "Loading";
     });
     builder.addCase(getAllThunk.fulfilled, (state, action) => {
-      console.log("extraReducers loading", action.payload);
+      console.log("extraReducers fulfilled!", action.payload);
       state.posts = action.payload;
     });
   },

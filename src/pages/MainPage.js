@@ -12,14 +12,11 @@ const MainPage = () => {
   
   const dispatch = useDispatch();
   
-  // const postList =  useSelector((state) => state.postList);
-  const postList = [1,2,3,4,5];
+  // const postList = [1,2,3,4,5];
+  const postList =  useSelector((state) => state.postList);
   useEffect(() => {
-    // apis.post_all().then((res) => {
-      //   console.log('All Posts',res.data);
-      
-      // });
-      dispatch(getAllThunk());
+    dispatch(getAllThunk());
+
   }
  
   , [])
@@ -28,13 +25,12 @@ const MainPage = () => {
       <Header />
       <Layout>
         <Container className="cardMainAll">
-          {postList.map((post,idx)=>
+          {postList?.map((post,idx)=>
           <div key={idx}>
-          <MainCard />
+          <MainCard post={post}/>
           </div>
           )
           }
-          {/* <MainCard /> <MainCard /> <MainCard /> <MainCard /> */}
         </Container>
       </Layout>
     </>

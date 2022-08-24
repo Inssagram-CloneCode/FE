@@ -8,7 +8,7 @@ export const getAllThunk = createAsyncThunk(
         try {
             const data = await apis.post_all();
             const postList = data.data.data;
-            console.log('thunk',data.data.data)
+            // console.log('thunk',data.data.data)
             return postList;
         }catch(err){
             return thunkAPI.rejectWithValue('thunkErr', err.response.data);
@@ -21,7 +21,7 @@ export const addCommentThunk = createAsyncThunk(
     async (payload, thunkAPI) => {
         try {
             const data = await apis.com_write(payload)
-            console.log('댓글 등록 완료', data)
+            console.log('thunk 댓글 등록 완료', data)
         }catch(err){
             return thunkAPI.rejectWithValue('thunkErr', err.response.data);
         }
@@ -33,7 +33,7 @@ export const delCommentThunk = createAsyncThunk(
     async (thunkAPI, payload) => {
         try {
             const data = await apis.com_del(payload)
-            console.log('댓글 삭제 완료', data)
+            console.log('thunk 댓글 삭제 완료', data)
         }catch(err){
             return thunkAPI.rejectWithValue('thunkErr', err.response.data);
         }
@@ -45,7 +45,7 @@ export const switchHeartThunk = createAsyncThunk(
     async (thunkAPI, payload) => {
         try {
             const data = await apis.com_write(payload)
-            console.log('하트 누르기', data)
+            console.log('thunk 하트 누르기', data)
         }catch(err){
             return thunkAPI.rejectWithValue('thunkErr', err.response.data);
         }
