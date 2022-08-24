@@ -20,7 +20,15 @@ const mySlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getAllMyThunk.fulfilled, (state, action) => {
       console.log("extraReducers fulfilled!", action.payload);
-      state.postList = action.payload;
+      const myData = {
+        userId: action.payload.user.userId,
+        username: action.payload.user.username,
+        intro : action.payload.user.intro,
+        profileImgUrl: action.payload.user.profileImgUrl,
+        postTotalNum: action.payload.postTotalNum,
+        heartTotalNum : action.payload.heartTotalNum,
+      };
+      state.myData = myData;  
       state.nowStatus = "fulfilled, getAllMy";
       // state.commentList = action.payload.commentList
     });

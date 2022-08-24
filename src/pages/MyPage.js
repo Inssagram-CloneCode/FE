@@ -26,114 +26,102 @@ const MyPage = () => {
    dispatch(getAllMyThunk(userId))
   }, []);
   
-  const contentList = useSelector((state)=>state.my.contentList);
+  // const contentList = useSelector((state)=>state.my.contentList);
   const myData = useSelector((state)=>state.my.myData); 
   
-//   const myData = {
-//   userId: 333,
-//   username: 'henryTester',
-//   profileImgUrl: "/images/henry.jpg",
-//   postTotalNum: 470,
-//   heartTotalNum : commaForNum(5643),
-//   intro : `
-//         Henry Lau 헨리
-//         <br /> Monster Entertainment Group <br /> youtu.be/txCr13nL3Ec
-//   `
-// };
-  
-// const contentList = [
-//     {
-//       postId: 1,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 2,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 3,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 4,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 5,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 6,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 7,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 8,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 9,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 10,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 11,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 12,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 13,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//   ];
+const contentList = [
+    {
+      postId: 1,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 2,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 3,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 4,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 5,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 6,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 7,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 8,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 9,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 10,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 11,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 12,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+    {
+      postId: 13,
+      imgUrl:
+        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
+      heartNum: 21,
+      commentNum: 12,
+    },
+  ];
 
   return (
   <>
