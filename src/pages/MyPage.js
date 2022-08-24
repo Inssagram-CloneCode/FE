@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Header from '../components/Header';
 import { getCookie } from "../shared/Cookie";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MyPageAlbum } from "../components/MyPageAlbum";
 import { MyPageProfile } from "../components/MyPageProfile";
 import "./css/mypage.css";
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/esm/Container";
 
 const MyPage = ({ props }) => {

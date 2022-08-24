@@ -1,24 +1,38 @@
 import React from 'react';
-import '../../y_css/modalTemplate.css';
-import PostCompo from './PostCompo';
-import TempModal from './TempModal';
-import ConfirmRemove from './ConfirmRemove'
+import { useSelector, useDispatch } from 'react-redux';
+import { setModal, clearModal } from '../../y_redux/modules/modalSlice';
+import PostWatch from './PostWatch';
+import PostDrop from './PostDrop';
+import ConfirmRemove from './ConfirmRemove';
 import PostWrite from './PostWrite';
+import '../../y_css/modalTemplate.css';
 
 
 
-const ModalTemplate = () => {
+const ModalTemplate = ({shutModal}) => {
+  const modalData = useSelector((state) => state.modal.modalData);
+  const alertData = useSelector((state) => state.modal.alertData);
+  const modalRouter = () => {
+    if(modalData.type === 'post_d'){
+      return <PostDrop />
+    }else if(modalData.type === 'post_m'){
+      return <PostWrite />
+    }else if(modalData.type === 'post_w'){
+      return <PostWatch />
+    }
+  }
+  const alertRouter = () => {
+    if(alertData.type === 'alert_r'){
+      return <ConfirmRemove />
+    }
+  }
   return(
-    <div className="modal_background">
-      <button className="modal_btn">
-        <div>
-          x
-        </div>
+    <div className="modal_background" onClick={shutModal}>
+      <button className="modal_btn" onClick={shutModal}>
+          X
       </button>
-        {/* <PostWrite />
-        <PostCompo />
-        <TempModal />
-        <ConfirmRemove /> */}
+      {modalRouter()}
+      {alertRouter()}
     </div>
   )
 }
