@@ -47,14 +47,15 @@ export const postWithoutCookie = async(url,payload) => {
   }
 }
 
-export const getWithCookie = async(url,cookie) => {
+export const getWithCookie = async(url,access,refresh) => {
   try{
     const res = await axios({
       method: 'GET',
       url: `${BASE_URL}${url}`,
       headers:{
         "Content-Type": "application/json",
-        "Authorization": `${cookie}`
+        "Authorization": `Bearer ${access}`,
+        "Refresh-Token": refresh
       }
     })
     if(res.status === 200){
