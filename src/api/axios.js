@@ -55,7 +55,6 @@ api.interceptors.response.use(
   );
 
 const apis = {
-    // json 용
     // 홈 화면에서 불러올 데이터 
     get_all: () => api.get("/posts"),
     post_heart: (postId, payload) => api.post(`/likes/${postId}`, payload),
@@ -67,10 +66,8 @@ const apis = {
     // 마이페이지에서 불러올 데이터
     // 회원 정보 수정에서 불러올 데이터 => 마이페이지에서 상속 받음
     // 프로필 사진 클릭시 불러올 데이터 => 마이페이지에서 상속, 정보 유지 프로필 사진만 변경
-    get_mypage: async () => await api.get("users/:userId"),
-    
-    
- 
+    get_mypage: (userId) => api.get(`users/${userId}`),
+    put_myprofile: (userId, payload) => api.put(`/users/${userId}`, payload)
 }
 
 export default apis;

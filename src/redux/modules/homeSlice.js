@@ -8,6 +8,9 @@ const initialState = {
     { username: "사용자1", commentContents: "blablanames" },
     { username: "사용자2", commentContents: "blablanames2222222222222222" },
   ],
+  myList:[],
+  myData:{},
+  contentList:[],
   hearts: [],
   nowStatus: "",
 };
