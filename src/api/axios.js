@@ -4,7 +4,6 @@ import { getLocal } from "../y_axios/local";
 
 
 // 1. Axios instance생성
-
 const base_url = "http://52.78.235.109/api";
 // http://52.78.235.109/api/
 // http://localhost/3001
@@ -58,7 +57,7 @@ api.interceptors.response.use(
 const apis = {
     // json 용
     // 홈 화면에서 불러올 데이터 
-    post_all: () => api.get("/posts"),
+    get_all: () => api.get("/posts"),
     post_heart: (postId, payload) => api.post(`/likes/${postId}`, payload),
     // 리덕스로 관리 필요, (추후 기능 구현을 위해서, post all으로 기능 구현)
     com_write: (postId, payload) =>
@@ -68,7 +67,7 @@ const apis = {
     // 마이페이지에서 불러올 데이터
     // 회원 정보 수정에서 불러올 데이터 => 마이페이지에서 상속 받음
     // 프로필 사진 클릭시 불러올 데이터 => 마이페이지에서 상속, 정보 유지 프로필 사진만 변경
-    post_mypage: async () => await api.get("users/:userId"),
+    get_mypage: async () => await api.get("users/:userId"),
     
     
  

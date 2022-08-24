@@ -1,4 +1,4 @@
-import { createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit";
+import { createAsyncThunk} from "@reduxjs/toolkit";
 import apis from "../../api/axios";
 
 
@@ -6,7 +6,7 @@ export const getAllThunk = createAsyncThunk(
     '/api/posts/viewall',
     async (thunkAPI) => {
         try {
-            const data = await apis.post_all();
+            const data = await apis.get_all();
             const postList = data.data.data;
             // console.log('thunk',data.data.data)
             return postList;

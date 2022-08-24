@@ -30,20 +30,19 @@ const MainCard = ({ post }) => {
   const [index, setIndex] = useState(0);
   // const [indexCop, setIndexCop] = useState(0);
 
-  
-
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
     // console.log(selectedIndex);
   };
 
   // const imgUrl = ["/images/dua1.jpg"];
+  const isHeart = post.isHeart;
   const imageUrlList = post.imageUrlList;
   const username = post.user.username;
   const userId = post.user.userId;
-  const porfileImgUrl = post.user.profileImgUrl;
+  const profileImageUrl = post.user.profileImageUrl;
   const postContents = post.postContents;
-  const [isHeart, setHeart] = useState(false);
+  const [heartStatus, setHeart] = useState(false);
   // const commentList = [{username: '사용자1', commentContents:'blablanames'},{username: '사용자2', commentContents:'blablanames2222222222222222'}]
   const heartNum = commaForNum(post.heartNum);
   const commentNum = commaForNum(post.commentNum);
@@ -56,11 +55,11 @@ const MainCard = ({ post }) => {
   // console.log(heartRef.current.classList)
 
   const heartOnClick = (e) => {
-    setHeart(!isHeart);
+    setHeart(!heartStatus);
     setTimeout(() => {}, 100);
   };
   const HeartOnOff = () => {
-    return isHeart ? <HeartOnSvg /> : <HeartOffSvg />;
+    return heartStatus ? <HeartOnSvg /> : <HeartOffSvg />;
   };
 
   const onClickProfile = () => {
@@ -76,12 +75,29 @@ const MainCard = ({ post }) => {
     dispatch(addComment(newComment));
   };
 
-  
   useEffect(() => {
-  
-    console.log('maincard', {post});
+    // console.log('maincard', {post});
+    if (post?.isHeart === 1) {
+      setHeart(true);
+    } else if (post?.isHeart === 0) {
+      setHeart(false);
+    }
+  }, [post]);
 
-  }, []);
+  const ProfileImageBox = () => {
+    return profileImageUrl===null ?
+    <img
+    alt={`${username}님의 프로필 사진`}
+    className="profile"
+    src="./images/defaultImg.jpg"
+  /> 
+  :
+  <img
+    alt={`${username}님의 프로필 사진`}
+    className="profile"
+    src={profileImageUrl}
+  /> 
+  }
 
   const ImageBox = () => {
     return imageUrlList?.length === 1 ? (
@@ -110,11 +126,7 @@ const MainCard = ({ post }) => {
         <div className="outTopSt">
           <div className="inTopSt" onClick={() => onClickProfile()}>
             <button>
-              <img
-                alt={`${username}님의 프로필 사진`}
-                className="profile"
-                src={porfileImgUrl}
-              />
+             <ProfileImageBox />
             </button>
             <span>
               <strong>{username}</strong>
@@ -126,7 +138,7 @@ const MainCard = ({ post }) => {
         </div>
         <div className="outBottomSt">
           <div className="inBottomSt">
-            <button className={`heart${isHeart}`} onClick={heartOnClick}>
+            <button className={`heart${heartStatus}`} onClick={heartOnClick}>
               <HeartOnOff />
             </button>
             <button>
