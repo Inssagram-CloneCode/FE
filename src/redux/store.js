@@ -1,8 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import homeSlice from './modules/homeSlice';
+import { applyMiddleware, configureStore } from '@reduxjs/toolkit';
+import homeReducer from './modules/homeSlice';
+import userReducer from '../y_redux/modules/userSlice';
+
+// const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
+
 const store = configureStore({
   reducer: {
-    home : homeSlice,
+    home : homeReducer,
+    user : userReducer
   },
 });
 
