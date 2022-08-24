@@ -13,7 +13,7 @@ const MyCard = ({ post }) => {
   return (
     <div className="mycard">
       <div className="mycardImgDiv">
-        <CardImg className="mycardImg" src={post?.imgUrl} />
+        <CardImg className="mycardImg" src={post?.imageUrl} />
         <div className="mycardInfo">
         <span>
         <HeartFillSvg/>&nbsp; {heartNum} &nbsp;&nbsp; <ChatFillSvg/>&nbsp; {commentNum}

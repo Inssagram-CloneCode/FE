@@ -25,7 +25,7 @@ export const MyPageProfile = ({ myData }) => {
   // const userId = useLocation().state.userId;
   // console.log(userId);
 
-  const profileImgUrl = myData.profileImgUrl;
+  const profileIamgeUrl = myData.profileImageUrl;
   const postTotalNum = myData.postTotalNum;
   const heartTotalNum = myData.heartTotalNum;
   const intro =  myData.intro;
@@ -69,7 +69,7 @@ export const MyPageProfile = ({ myData }) => {
         accept="image/jpg,impge/png,image/jpeg"
         name="profile_img"
         onChange={(e) => {
-          onChangePic({ e, profileImgUrl });
+          onChangePic({ e, profileIamgeUrl });
         }}
         ref={picRef}
       />
@@ -81,7 +81,7 @@ export const MyPageProfile = ({ myData }) => {
             fluid
             roundedCircle
             thumbnail
-            src={showImg ? showImg : profileImgUrl}
+            src={showImg ? showImg : profileIamgeUrl}
             onClick={() => picRef.current.click()}
           />
         </div>

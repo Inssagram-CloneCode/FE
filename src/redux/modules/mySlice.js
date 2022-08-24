@@ -23,12 +23,13 @@ const mySlice = createSlice({
       const myData = {
         userId: action.payload.user.userId,
         username: action.payload.user.username,
-        intro : action.payload.user.intro,
-        profileImgUrl: action.payload.user.profileImgUrl,
+        intro: action.payload.user.intro,
+        profileImageUrl: action.payload.user.profileImageUrl,
         postTotalNum: action.payload.postTotalNum,
-        heartTotalNum : action.payload.heartTotalNum,
+        heartTotalNum: action.payload.heartTotalNum,
       };
       state.myData = myData;  
+      state.contentList = action.payload.contentList;
       state.nowStatus = "fulfilled, getAllMy";
       // state.commentList = action.payload.commentList
     });
