@@ -7,11 +7,9 @@ import { commaForNum } from "./funcs";
 // import Col from "react-bootstrap/Col";
 
 
-export const MyPageProfile = ({ myData }) => {
+export const MyPageProfile = ({ myData, userData }) => {
   const navigate = useNavigate();
   const { username } = useParams();
-  
-  const userData = myData.email? {...myData} : {};
   
   // mypage의 myData에서 cookie에 저장된 userId가 일치하면,
   // local storage에 저장한 이메일 가져와 담아서 넘겨주기 
@@ -27,7 +25,7 @@ export const MyPageProfile = ({ myData }) => {
   // const userId = useLocation().state.userId;
   // console.log(userId);
 
-  const profileIamgeUrl = myData.profileImageUrl;
+  const profileImageUrl = myData.profileImageUrl;
   const postTotalNum = myData.postTotalNum;
   const heartTotalNum = myData.heartTotalNum;
   const intro =  myData.intro;
@@ -55,9 +53,9 @@ export const MyPageProfile = ({ myData }) => {
   };
 
   const FixMyInfo = () => {
-    // console.log(myData);
     return (
-      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData? userData : null}})}>
+      (userData.userId!==myData.userId) ? <></> :
+      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData}})}>
         프로필 편집
       </button>
     );
@@ -66,7 +64,7 @@ export const MyPageProfile = ({ myData }) => {
   const FixMyInfo2 = () => {
     // console.log(myData);
     return (
-      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData? userData : null}})}>
+      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData}})}>
         무조건 내 프로필 편집
       </button>
     );
@@ -78,9 +76,9 @@ export const MyPageProfile = ({ myData }) => {
         type="file"
         style={{ display: "none" }}
         accept="image/jpg,impge/png,image/jpeg"
-        name="profile_img"s
+        name="profile_img"
         onChange={(e) => {
-          onChangePic({ e, profileIamgeUrl });
+          onChangePic({ e, profileImageUrl });
         }}
         ref={picRef}
       />
@@ -92,7 +90,7 @@ export const MyPageProfile = ({ myData }) => {
             fluid
             roundedCircle
             thumbnail
-            src={showImg ? showImg : profileIamgeUrl}
+            src={showImg ? showImg : profileImageUrl}
             onClick={() => picRef.current.click()}
           />
         </div>

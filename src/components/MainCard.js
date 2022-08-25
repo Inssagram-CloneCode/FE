@@ -85,7 +85,7 @@ const MainCard = ({ post }) => {
   }, [post]);
 
   const ProfileImageBox = () => {
-    return profileImageUrl===null ?
+    return (profileImageUrl===null)?
     <img
     alt={`${username}님의 프로필 사진`}
     className="profile"

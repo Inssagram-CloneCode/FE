@@ -38,7 +38,7 @@ const mySlice = createSlice({
       const userData = {
         userId: action.payload.userId,
         username: action.payload.username,
-        profileImageUrl: action.payload.profileImageUrl,
+        profileImageUrl: action.payload.profileImgUrl,
         email:action.payload.email
       };
       // console.log("extraReducers fulfilled! re-getUserInfo", userData);
