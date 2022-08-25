@@ -1,9 +1,20 @@
+*::-webkit-scrollbar {
+  width: 15px; /* scroll width */
+}
+
+*::-webkit-scrollbar-thumb {
+  height: 30%; /* scrollbar height*/
+  background: #DBDBDB; /* scrollbar color */
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: none; /*scollbar background color*/
+}
+
 .cardMainAll {
-  /* border: none; */
-  /* position: absolute; */
-  /* left: 50%; top: 50%; */
-  /* transform: translate(-50%, -50%); */
-  /* text-align: center; */
+    margin-top: 100px;
+    border: none;
 }
 
 .miniCard {

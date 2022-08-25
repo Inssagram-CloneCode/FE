@@ -175,7 +175,6 @@ export const HeartFillSvg = () => {
 };
 
 // 하얀색 말풍선
-
 export const ChatFillSvg = () => {
   return(
     <svg

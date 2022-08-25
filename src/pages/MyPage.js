@@ -1,125 +1,41 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useLocation } from "react-router-dom";
+import Container from "react-bootstrap/esm/Container";
+import { getCookie } from "../shared/cookie";
 import Header from '../components/Header';
-import { getCookie } from "../shared/Cookie";
-import { useParams } from "react-router-dom";
 import { MyPageAlbum } from "../components/MyPageAlbum";
 import { MyPageProfile } from "../components/MyPageProfile";
+import { commaForNum } from "../components/funcs";
 import "./css/mypage.css";
-import Container from "react-bootstrap/esm/Container";
+import { getAllMyThunk, getUserInfoThunk } from "../redux/asyncThunk/myThunk";
 
-const MyPage = ({ props }) => {
-  const cookie = getCookie("accessToken");
-  const { username } = useParams();
-  // const userId= useLocation().state.userId;
+const MyPage = () => {
+  const dispatch = useDispatch();
+  // const cookie = getCookie("mytoken");
+  // const { username } = useParams();
+  const userId= useLocation().state.userId;  
+  // console.log(userId);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // 데이터 불러오기
   useEffect(() => {
-    if (cookie !== undefined) {
-      return setIsLoggedIn(true);
-    }
+    // if (cookie !== undefined) {
+    //   return setIsLoggedIn(true);
+    // }
+   dispatch(getAllMyThunk(userId))
+   dispatch(getUserInfoThunk())
   }, []);
-  // redux 에서 저장한 데이터 꺼내오던지, 바로 불러와서 사용하던지
- const myData = [];
-  const contentList = [
-    {
-      postId: 1,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 2,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 3,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 4,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 5,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 6,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 7,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 8,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 9,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 10,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 11,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 12,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-    {
-      postId: 13,
-      imgUrl:
-        "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-      likeNum: 21,
-      commentNum: 12,
-    },
-  ];
+  
+  const contentList = useSelector((state)=>state.my.contentList);
+  const myData = useSelector((state)=>state.my.myData); 
+  const userData = useSelector((state)=>state.my.userData);
 
   return (
   <>
     <Header />
     <Container className="cardMyPageAll">
-      <MyPageProfile myData={myData} />
+      <MyPageProfile myData={myData} userData={userData}/>
       <MyPageAlbum contentList={contentList} />
     </Container>
   </>

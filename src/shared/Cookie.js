@@ -1,11 +1,9 @@
 // 쿠키에 저장할 때
-// export const setCookie = (name, value, exp = 5) => {
 export const setCookie = (name, value, exp) => {
-  let date = new Date();
-  date.setTime(exp);
+  let date = new Date(exp);
   // date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value}; expires=${date.toUTCString()}`;
   // return cookies.set(name, value, { ...option });
+  document.cookie = `${name}=${value};  path=/; expires=${date.toUTCString()}`;
 };
 
 // 쿠키에 저장한 거 쓸 때

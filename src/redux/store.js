@@ -1,8 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import homeSlice from './modules/homeSlice';
+import { applyMiddleware, configureStore } from '@reduxjs/toolkit';
+import homeReducer from './modules/homeSlice';
+import userReducer from '../y_redux/modules/userSlice';
+import myReducer from './modules/mySlice';
+
 const store = configureStore({
   reducer: {
-    home : homeSlice,
+    home : homeReducer,
+    user : userReducer,
+    my : myReducer,
   },
 });
 

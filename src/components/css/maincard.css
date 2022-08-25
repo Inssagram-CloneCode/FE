@@ -8,6 +8,7 @@ button {
     overflow-x: hidden;
     border: solid #DBDBDB 1px;
     border-radius: 15px;
+    margin-bottom: 15px;
 }
 
 .outTopSt {
@@ -42,7 +43,6 @@ button {
     text-align: center;
 }
 
-
 .indicatorSt {
     color: #828282;
     font-size: 10px;
@@ -63,7 +63,6 @@ button {
     height: 40px;
     /* padding-top:15px; */
     padding-bottom: 15px;
-
 }
 
 .inBottomSt>button>svg:hover {
@@ -81,16 +80,13 @@ button {
     opacity: 1;
 }
 
-
 @keyframes popping {
     0% {
         transform: scale(1.25);
     }
-
     100% {
         transform: scale(1.0);
     }
-
 }
 
 .outBottomComSt {
@@ -98,6 +94,11 @@ button {
 }
 
 .d-block w-100 {
+    height: 587px;
+    width: 470px;
+}
+
+.imageShow {
     height: 587px;
     width: 470px;
 }
@@ -110,6 +111,20 @@ button {
     background-image: url("../iconfolder/next.svg");
 }
 
-.carousel-indicators {
-    background-image: url("../iconfolder/next.svg");
+.comment-input-box {
+    margin: 5px;
+}
+
+.comment-input {
+    width: 350px;
+    /* border:1px solid #828282; */
+    border-radius: 5px;
+    margin-left: 7px;
+}
+.comment-btn {
+    color: var(--color-blue);
+    border-radius: 10px;
+    font-weight: 700;
+    margin-left: 5px;
+
 }

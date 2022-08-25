@@ -1,10 +1,17 @@
 .header{
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100vw;
   height: 60px;
   border-bottom: 1.5px solid var(--color-line);
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
+
 }
 .header_content{
   width: calc(1000px + 20px);
