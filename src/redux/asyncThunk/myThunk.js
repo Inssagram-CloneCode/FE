@@ -30,9 +30,9 @@ export const getUserInfoThunk = createAsyncThunk(
 
 export const updateUserInfoThunk = createAsyncThunk(
     '/api/mypage/updateuserinfo',
-    async (userId, thunkAPI) => {
+    async (userId, newUserData, thunkAPI) => {
         try {
-            const data = await apis.put_myInfo(userId);
+            const data = await apis.put_myInfo(userId, newUserData);
             const res = data;
             // console.log('thunk UserInfo',data.data.data)
             return res;

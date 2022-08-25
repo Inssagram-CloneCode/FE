@@ -15,7 +15,7 @@ const AccountsEdit = () => {
   // const userData = useSelector((state) => state.user.userData);
   // console.log(userData);
   let updateUserData = new FormData();
-  const [chkData, setData] = useState();
+  const [newUserData, setData] = useState();
   const userData = useLocation().state.userData;
   const userId = userData.userId;
   const username = userData.username;
@@ -42,15 +42,15 @@ const AccountsEdit = () => {
   };
 
   useEffect(() => {
-    if(chkData!==undefined){
+    if(newUserData!==undefined){
     // updateUserData.append("username", usernameRef.current?.value);
     // updateUserData.append("intro", introRef.current?.value);
     // updateUserData.append("profileImageFile", newPic);
-    console.log('onSubmitForm useEffect',chkData ,JSON.stringify( updateUserData));
+    console.log('onSubmitForm useEffect',newUserData,JSON.stringify( updateUserData));
     console.log('useEffect', JSON.stringify( updateUserData));
-    dispatch(updateUserInfoThunk(userId))
+    dispatch(updateUserInfoThunk(userId, newUserData))
     }
-  }, [chkData])
+  }, [newUserData])
   
   const onChangePic = (e) => {
     const reader = new FileReader();
