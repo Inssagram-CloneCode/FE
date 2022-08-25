@@ -32,8 +32,20 @@ export const updateUserInfoThunk = createAsyncThunk(
     '/api/mypage/updateuserinfo',
     async (userId, newUserData, thunkAPI) => {
         try {
-            const data = await apis.put_myInfo(userId, newUserData);
-            const res = data;
+            const res = await apis.put_myInfo(userId, newUserData);
+            // console.log('thunk UserInfo',data.data.data)
+            return res;
+        }catch(err){
+            return thunkAPI.rejectWithValue('thunkErr', err.response);
+        }
+    }
+)
+
+export const updateUserInfoThunk2 = createAsyncThunk(
+    '/api/mypage/updateuserinfo',
+    async (userId, updateUserData, thunkAPI) => {
+        try {
+            const res = await apis.put_myInfo(userId, updateUserData);
             // console.log('thunk UserInfo',data.data.data)
             return res;
         }catch(err){

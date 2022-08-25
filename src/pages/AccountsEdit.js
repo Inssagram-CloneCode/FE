@@ -8,7 +8,8 @@ import "./css/accountedit.css";
 import { useLocation } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
-import { updateUserInfoThunk } from "../redux/asyncThunk/myThunk";
+import { updateUserInfoThunk, updateUserInfoThunk2 } from "../redux/asyncThunk/myThunk";
+import apis from "../api/axios";
 
 const AccountsEdit = () => {
   const dispatch = useDispatch();
@@ -43,12 +44,13 @@ const AccountsEdit = () => {
 
   useEffect(() => {
     if(newUserData!==undefined){
-    // updateUserData.append("username", usernameRef.current?.value);
-    // updateUserData.append("intro", introRef.current?.value);
-    // updateUserData.append("profileImageFile", newPic);
+    updateUserData.append("username", usernameRef.current?.value);
+    updateUserData.append("intro", introRef.current?.value);
+    updateUserData.append("profileImageFile", newPic);
     console.log('onSubmitForm useEffect',newUserData,JSON.stringify( updateUserData));
     console.log('useEffect', JSON.stringify( updateUserData));
-    dispatch(updateUserInfoThunk(userId, newUserData))
+    apis.put_myInfo(userId,newUserData);
+    apis.put_myInfo2(userId,updateUserData);
     }
   }, [newUserData])
   
