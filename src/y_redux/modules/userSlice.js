@@ -6,8 +6,8 @@ import { clearLocal, getLocal, setLocal } from '../../y_axios/local';
 
 
 // createAsyncThunk는 비동기 처리를 하는 액션을 만들어준다.
-export const loadUserThunk = createAsyncThunk('user/LOAD', async () => {
-    const res = await postWithCookie('/api/load');
+export const loadUserThunk = createAsyncThunk('user/loadUserThunk', async () => {
+    const res = await getWithCookie('/api/users');
     return res.data;
   }
 );
@@ -51,10 +51,6 @@ const userSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(loadUserThunk.pending, (state, action) => {
-      console.log('please wait...');
-      state.userStatus = 'Loading';
-    });
     builder.addCase(loginUserThunk.fulfilled, (state, action) => {
       const token = action.payload.token;
       // const expireDate = new Date(token.accessTokenExpiresIn);
@@ -98,6 +94,9 @@ const userSlice = createSlice({
       clearLocal('email');
       clearLocal('profileImgUrl');
     });
+    builder.addCase(loadUserThunk.fulfilled, (state, action) => {
+      console.log(action.payload);
+    })
 
   }
 });
