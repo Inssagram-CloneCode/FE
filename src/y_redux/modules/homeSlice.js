@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addCommentThunk, getAllThunk } from "../asyncThunk/homeThunk";
+import { addCommentThunk, getAllThunk } from "./asyncThunk/homeThunk";
 
 // slice 내에선 getState()
 const initialState = {
@@ -44,15 +44,6 @@ const homeSlice = createSlice({
       state.commentList = newCommentList;
     },
     switchHeart: (state, action) => {
-      const payload =
-        action.payload.isHeart === 1
-          ? {
-              isHeart: 1,
-            }
-          : {
-              isHeart: 0,
-            };
-       
       state.commentList.isHeart = !state.commentList.isHeart;
     },
   },

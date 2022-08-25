@@ -5,28 +5,28 @@ import MainCard from "../components/MainCard";
 import Layout from "../components/layout/Layout";
 import Container from "react-bootstrap/Container";
 import "./css/mainpage.css";
-import { getAllThunk } from "../redux/asyncThunk/homeThunk";
+import { getAllThunk } from "../y_redux/modules/asyncThunk/homeThunk";
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const postList =  useSelector((state) => state.home.postList);
-  // console.log('mainPage',postList)
+  const postList = useSelector((state) => state.home.postList);
   useEffect(() => {
     dispatch(getAllThunk());
-  }
- 
-  , [])
+  }, [dispatch]);
+  useEffect(() => {
+    console.log(postList);
+  }, [postList]);
+
   return (
     <>
       <Header />
       <Layout>
         <Container className="cardMainAll">
-          {postList?.map((post,idx)=>
-          <div key={idx}>
-          <MainCard post={post}/>
-          </div>
-          )
-          }
+          {postList?.map((post, idx) => (
+            <div key={idx}>
+              <MainCard post={post} />
+            </div>
+          ))}
         </Container>
       </Layout>
     </>

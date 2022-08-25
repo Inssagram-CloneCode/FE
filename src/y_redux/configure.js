@@ -1,15 +1,12 @@
 import { combineReducers, configureStore, } from '@reduxjs/toolkit';
-import homeSlice from '../redux/modules/homeSlice';
 import userReducer from './modules/userSlice';
+import modalReducer from './modules/modalSlice';
+import homeSlice from './modules/homeSlice';
+import myReducer from './modules/mySlice';
 
-const rootReducer = combineReducers({
-    
-    user: userReducer,
-    home: homeSlice
 
-});
+const rootReducer = combineReducers({user: userReducer, modal: modalReducer, home: homeSlice, my : myReducer});
 
 const store = configureStore({reducer: rootReducer});
-// const store = configureStore({rootReducer, middleware: [...getDefaultMiddleware()]});
 
 export default store;

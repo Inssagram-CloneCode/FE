@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import ImgBox from './ImgBox';
 import PostHeader from './eachBlock/PostHeader';
 import PostContent from './eachBlock/PostContent';
@@ -8,7 +9,11 @@ import CommentInputBox from './eachBlock/CommentInputBox';
 import '../../y_css/postCompo.css';
 
 
-const PostCompo = () => {
+const PostWatch = () => {
+  const modalData = useSelector((state) => state.modal.modalData);
+  console.log(modalData);
+
+
   return(
     <div className="modal_board">
       <div className="post_img_section">
@@ -51,4 +56,4 @@ const PostCompo = () => {
   )
 }
 
-export default PostCompo;
+export default PostWatch;
