@@ -8,7 +8,7 @@ import { MyPageAlbum } from "../components/MyPageAlbum";
 import { MyPageProfile } from "../components/MyPageProfile";
 import { commaForNum } from "../components/funcs";
 import "./css/mypage.css";
-import { getAllMyThunk } from "../redux/asyncThunk/myThunk";
+import { getAllMyThunk, getUserInfoThunk } from "../redux/asyncThunk/myThunk";
 
 const MyPage = () => {
   const dispatch = useDispatch();
@@ -24,110 +24,18 @@ const MyPage = () => {
     //   return setIsLoggedIn(true);
     // }
    dispatch(getAllMyThunk(userId))
+   dispatch(getUserInfoThunk())
   }, []);
   
   const contentList = useSelector((state)=>state.my.contentList);
   const myData = useSelector((state)=>state.my.myData); 
-  
-// const contentList = [
-//     {
-//       postId: 1,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 2,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 3,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 4,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 5,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 6,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 7,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 8,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 9,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 10,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 11,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 12,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//     {
-//       postId: 13,
-//       imgUrl:
-//         "https://pixabay.com/ko/images/download/clouds-7382221_640.jpg?attachment",
-//       heartNum: 21,
-//       commentNum: 12,
-//     },
-//   ];
+  const userData = useSelector((state)=>state.my.userData);
 
   return (
   <>
     <Header />
     <Container className="cardMyPageAll">
-      <MyPageProfile myData={myData} />
+      <MyPageProfile myData={myData} userData={userData}/>
       <MyPageAlbum contentList={contentList} />
     </Container>
   </>

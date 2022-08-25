@@ -62,15 +62,14 @@ const homeSlice = createSlice({
       state.nowStatus = "pending";
     });
     builder.addCase(getAllThunk.fulfilled, (state, action) => {
-      console.log("extraReducers fulfilled!", action.payload);
+      // console.log("extraReducers fulfilled!", action.payload);
       state.postList = action.payload;
       state.nowStatus = "fulfilled, getAll";
       // state.commentList = action.payload.commentList
     });
     builder.addCase(addCommentThunk.fulfilled, (state, action) => {
-      console.log("extraReducers fulfilled!", action.payload);
+      // console.log("extraReducers fulfilled!", action.payload);
       state.postList = action.payload;
-      state.nowStatus = "fulfilled, getAll";
       // state.commentList = action.payload.commentList
     });
     

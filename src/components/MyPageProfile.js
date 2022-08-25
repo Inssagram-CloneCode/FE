@@ -11,12 +11,14 @@ export const MyPageProfile = ({ myData }) => {
   const navigate = useNavigate();
   const { username } = useParams();
   
+  const userData = myData.email? {...myData} : {};
+  
   // mypage의 myData에서 cookie에 저장된 userId가 일치하면,
-  // local storage에 저장한 이메일 가져와 담아서 넘겨주기
+  // local storage에 저장한 이메일 가져와 담아서 넘겨주기 
   // or redux에서 저장된 값 가져와서 일치여부 확인 후 넘겨주기
-  // or 유저정보 재요청
+  // or 유저정보 재요청 >>  이 방법 채택 
+  // 보이진 않지만, 마이페이지 들어올 때 마다 본인 정보 토큰으로 재요청
 
- const userData = {...myData, email:"tester@inssagram.com"}
   const picRef = useRef();
   // 새로 보내줄 사진 데이터
   const [newPic, setPic] = useState();
@@ -55,8 +57,17 @@ export const MyPageProfile = ({ myData }) => {
   const FixMyInfo = () => {
     // console.log(myData);
     return (
-      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData}})}>
+      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData? userData : null}})}>
         프로필 편집
+      </button>
+    );
+  };
+
+  const FixMyInfo2 = () => {
+    // console.log(myData);
+    return (
+      <button className="fixMyInfo" onClick={() => navigate("/accounts/edit", {state:{userData: userData? userData : null}})}>
+        무조건 내 프로필 편집
       </button>
     );
   };
@@ -67,7 +78,7 @@ export const MyPageProfile = ({ myData }) => {
         type="file"
         style={{ display: "none" }}
         accept="image/jpg,impge/png,image/jpeg"
-        name="profile_img"
+        name="profile_img"s
         onChange={(e) => {
           onChangePic({ e, profileIamgeUrl });
         }}
@@ -88,6 +99,7 @@ export const MyPageProfile = ({ myData }) => {
         <div className="expProfile">
           <h3 className="nameProfile">{username}</h3> &nbsp;
           <FixMyInfo />
+          <FixMyInfo2 />
           <h5>
             게시물 <strong>{postTotalNum}</strong> &nbsp; 좋아요{" "}
             <strong>{heartTotalNum}</strong>
