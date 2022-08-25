@@ -8,7 +8,6 @@ import "./css/accountedit.css";
 import { useLocation } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
-import { updateUserInfoThunk, updateUserInfoThunk2 } from "../redux/asyncThunk/myThunk";
 import apis from "../api/axios";
 
 const AccountsEdit = () => {
@@ -17,6 +16,7 @@ const AccountsEdit = () => {
   // console.log(userData);
   let updateUserData = new FormData();
   const [newUserData, setData] = useState();
+  const [editUserProfileRequestDto, setUserDto] = useState(); 
   const userData = useLocation().state.userData;
   const userId = userData.userId;
   const username = userData.username;
@@ -35,25 +35,46 @@ const AccountsEdit = () => {
 
   const onSubmitForm = () => {
     setData({
-      username : usernameRef.current?.value,
-      intro : introRef.current?.value,
-      profileImageFile : newPic,
+      editUserProfileRequestDto: {
+        username: usernameRef.current?.value,
+        intro: introRef.current?.value,
+      },
+      profileImageFile: newPic,
+    });
+    setUserDto({
+      username: usernameRef.current?.value,
+      intro: introRef.current?.value,
     })
+
     // console.log('onSubmitForm',chkData ,JSON.stringify( updateUserData));
   };
 
   useEffect(() => {
-    if(newUserData!==undefined){
-    updateUserData.append("username", usernameRef.current?.value);
-    updateUserData.append("intro", introRef.current?.value);
-    updateUserData.append("profileImageFile", newPic);
-    console.log('onSubmitForm useEffect',newUserData,JSON.stringify( updateUserData));
-    console.log('useEffect', JSON.stringify( updateUserData));
-    apis.put_myInfo(userId,newUserData);
-    apis.put_myInfo2(userId,updateUserData);
+    if (newUserData !== undefined) {
+      const blobData = new Blob([JSON.stringify(editUserProfileRequestDto)], {
+        type: "application/json",
+      });
+      // updateUserData.append("editUserProfileRequestDto",{ username: usernameRef.current?.value,
+      //   intro: introRef.current?.value,});
+      updateUserData.append("editUserProfileRequestDto",blobData)
+      if(newPic===undefined){
+        updateUserData.append("profileImageFile", null);
+      }else{
+        updateUserData.append("profileImageFile", newPic);
+      }
+      // console.log(
+      //   "onSubmitForm useEffect",
+      //   newUserData,
+      //   JSON.stringify(updateUserData)
+      // );
+      console.log("useEffect", JSON.stringify(updateUserData));
+      // apis.put_myInfo(userId, newUserData);
+      apis.put_myInfo2(userId, updateUserData);
+      // apis.put_myInfo3(userId, editUserProfileRequestDto, newPic);
+    
     }
-  }, [newUserData])
-  
+  }, [newUserData]);
+
   const onChangePic = (e) => {
     const reader = new FileReader();
     if (e.target.files[0]) {
@@ -68,7 +89,9 @@ const AccountsEdit = () => {
   };
 
   const ShowMyPic = () => {
-    return profileImageUrl === "" ? (
+    return profileImageUrl === "" ||
+      profileImageUrl === undefined ||
+      profileImageUrl === null ? (
       <img
         className="accEditPic"
         src={showImg ? showImg : "/images/defaultImg.jpg"}
@@ -123,7 +146,12 @@ const AccountsEdit = () => {
                 <tr>
                   <th className="accEdit-th-2-1">사용자 이름</th>
                   <th className="accEdit-th-2-2">
-                    <input type="text" autoFocus defaultValue={username} ref={usernameRef} />
+                    <input
+                      type="text"
+                      autoFocus
+                      defaultValue={username}
+                      ref={usernameRef}
+                    />
                   </th>
                 </tr>
                 <tr>
@@ -135,7 +163,11 @@ const AccountsEdit = () => {
                 <tr className="accEdit-textAreaPart">
                   <th className="accEdit-th-2-1">소개</th>
                   <th className="accEdit-th-2-2">
-                    <textarea className="accEdit-intro" defaultValue={intro} ref={introRef}/>
+                    <textarea
+                      className="accEdit-intro"
+                      defaultValue={intro}
+                      ref={introRef}
+                    />
                   </th>
                 </tr>
               </tbody>
