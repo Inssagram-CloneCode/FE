@@ -60,6 +60,7 @@ const modalSlice = createSlice({
   },
   reducers:{
     setModal: (state, action) => {
+      console.log(action.payload.blob)
       state.modalData = action.payload;
     },
     clearModal: (state, action) => {
