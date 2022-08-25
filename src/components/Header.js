@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearUserThunk } from '../y_redux/modules/userSlice';
+import { clearUserThunk, loadUserThunk } from '../y_redux/modules/userSlice';
 import { getCookie } from '../y_axios/cookie';
 import UnivButton from './univ/univButton'
 import UnivProfile from './univ/univProfile';
@@ -19,6 +19,8 @@ const Header = () => {
     const accessCookie = getCookie('mytoken');
     if(userData.userId === undefined && accessCookie === undefined){
       navigate('/login');
+    }else{
+      dispatch(loadUserThunk());
     }
       // 유저데이터가 없다면,
       //  쿠키 여부 확인,

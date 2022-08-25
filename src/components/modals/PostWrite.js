@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setModal, uploadPostThunk } from '../../y_redux/modules/modalSlice';
+import { clearModal, setModal, uploadPostThunk } from '../../y_redux/modules/modalSlice';
 import UnivButton from '../univ/univButton';
 import UnivProfile from '../univ/univProfile';
 import '../../y_css/postWrite.css';
@@ -49,6 +49,7 @@ const PostWrite = () => {
       formData.append("imageFileList", modalData.blob[0][i]);
     }
     dispatch(uploadPostThunk(formData));
+    dispatch(clearModal());
   }
 
 
