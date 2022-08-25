@@ -17,6 +17,7 @@ import Image from "react-bootstrap/esm/Image";
 import { addComment } from "../redux/modules/homeSlice";
 import { Fragment } from "react";
 import { getCookie } from "../shared/cookie";
+import apis from "../api/axios";
 
 const MainCard = ({ post }) => {
   const navigate = useNavigate();
@@ -55,11 +56,24 @@ const MainCard = ({ post }) => {
   // console.log(heartRef.current.classList)
 
   const heartOnClick = (e) => {
+    if (heartStatus) {
     setHeart(!heartStatus);
+      apis.post_heart(post.postId, {isHeart:1}
+        
+        )
+    }else {
+      setHeart(!heartStatus);
+      apis.post_heart(post.postId, {isHeart:0}
+        )
+    }
     setTimeout(() => {}, 100);
   };
   const HeartOnOff = () => {
-    return heartStatus ? <HeartOnSvg /> : <HeartOffSvg />;
+    if (heartStatus) {
+      return <HeartOnSvg />
+    }else {
+     return <HeartOffSvg />
+    }
   };
 
   const onClickProfile = () => {
@@ -76,7 +90,7 @@ const MainCard = ({ post }) => {
   };
 
   useEffect(() => {
-    // console.log('maincard', {post});
+    // console.log('maincard',isHeart);
     if (post?.isHeart === 1) {
       setHeart(true);
     } else if (post?.isHeart === 0) {

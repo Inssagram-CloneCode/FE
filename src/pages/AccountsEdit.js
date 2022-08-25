@@ -13,11 +13,11 @@ import apis from "../api/axios";
 const AccountsEdit = () => {
   const dispatch = useDispatch();
   // const userData = useSelector((state) => state.user.userData);
-  // console.log(userData);
+  const userData = useLocation().state.userData;
+  console.log(userData);
   let updateUserData = new FormData();
   const [newUserData, setData] = useState();
   const [editUserProfileRequestDto, setUserDto] = useState(); 
-  const userData = useLocation().state.userData;
   const userId = userData.userId;
   const username = userData.username;
   const email = userData.email;
@@ -55,7 +55,7 @@ const AccountsEdit = () => {
         type: "application/json",
       });
       // updateUserData.append("editUserProfileRequestDto",{ username: usernameRef.current?.value,
-      //   intro: introRef.current?.value,});
+        // intro: introRef.current?.value,});
       updateUserData.append("editUserProfileRequestDto",blobData)
       if(newPic===undefined){
         updateUserData.append("profileImageFile", null);
@@ -67,9 +67,8 @@ const AccountsEdit = () => {
       //   newUserData,
       //   JSON.stringify(updateUserData)
       // );
-      console.log("useEffect", JSON.stringify(updateUserData));
-      // apis.put_myInfo(userId, newUserData);
-      apis.put_myInfo2(userId, updateUserData);
+      // console.log("useEffect", JSON.stringify(updateUserData));
+      apis.put_myInfo(userId, updateUserData);
       // apis.put_myInfo3(userId, editUserProfileRequestDto, newPic);
     
     }

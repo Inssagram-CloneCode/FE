@@ -47,7 +47,7 @@ export const MyPageProfile = ({ myData, userData }) => {
         updateUserData.append("username", usernameMe);
         updateUserData.append("intro", introMe);
         updateUserData.append("profileImageFile", newPic);
-        apis.put_myInfo2(userIdMe, updateUserData);
+        apis.put_myInfo(userIdMe, updateUserData);
         alert('프로필 사진 변경!')
       };
       reader.readAsDataURL(e.target.files[0]);
@@ -61,7 +61,7 @@ export const MyPageProfile = ({ myData, userData }) => {
       <button
         className="fixMyInfo"
         onClick={() =>
-          navigate("/accounts/edit", { state: { userData: userData } })
+          navigate("/accounts/edit", { state: { userData: [...userData,{intro: intro}] } })
         }
       >
         프로필 편집
