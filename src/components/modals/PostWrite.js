@@ -12,8 +12,6 @@ import me from '../../asset/profileMe.png';
 const PostWrite = () => {
   const dispatch = useDispatch();
   const modalData = useSelector((state) => state.modal.modalData);
-  console.log(modalData);
-  console.log(modalData.blob);
 
 
   let userProfileImg = me;
@@ -45,17 +43,11 @@ const PostWrite = () => {
     const blobData = new Blob([JSON.stringify(newPostData)], {
       type: "application/json",
     });
-    console.log(blobData)
     const formData = new FormData();
     formData.append("requestDto",blobData);
-    // formData.append("imageList", [modalData.imgSrc]);
-    // formData.append("imageList", [me]);
-    formData.append("imageList", modalData.blob);
-
-    console.log(modalData.blob);
-    // for (let value of formData.values()) {
-    //   console.log(value);
-    // }
+    for(let i=0; i<modalData.blob[0].length; i++){
+      formData.append("imageFileList", modalData.blob[0][i]);
+    }
     dispatch(uploadPostThunk(formData));
   }
 

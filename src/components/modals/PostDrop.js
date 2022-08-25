@@ -25,7 +25,7 @@ const PostDrop = () => {
   const dragDropBox = useRef(null);
   const dropImg = (e) =>{
     e.preventDefault();
-    const file = e.dataTransfer.files[0];
+    const file = e.dataTransfer.files;
     //파일 확장자 유효성 검사 했다고 치고
     // ref: https://betterprogramming.pub/how-to-implement-files-drag-and-drop-in-react-22cf42b7a7ef
     const reader = new FileReader();
@@ -34,7 +34,7 @@ const PostDrop = () => {
       const base64 = reader.result;
       if(base64){
         const base64Sub = base64.toString();
-        dispatch(setModal({...modalData, imgSrc: base64Sub, blob:[file]}));
+        dispatch(setModal({...modalData, imgSrc: base64Sub, blob:file}));
         setPreview(base64Sub);
       }
     }
@@ -50,7 +50,7 @@ const PostDrop = () => {
   }
 
   const inputImgChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.dataTransfer.files;
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
@@ -69,7 +69,6 @@ const PostDrop = () => {
   }
   //다음으로 넘어가기
   const moveToPostWrite = () => {
-    console.log(modalData.blob)
     const postMData = {
       type: 'post_m',
       imgSrc: preview,
