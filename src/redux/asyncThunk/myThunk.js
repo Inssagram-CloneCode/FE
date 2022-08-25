@@ -14,7 +14,6 @@ export const getAllMyThunk = createAsyncThunk(
     }
 )
 
-
 export const getUserInfoThunk = createAsyncThunk(
     '/api/mypage/getuserinfo',
     async (thunkAPI) => {
@@ -25,6 +24,20 @@ export const getUserInfoThunk = createAsyncThunk(
             return userData;
         }catch(err){
             return thunkAPI.rejectWithValue('thunkErr', err.response.data);
+        }
+    }
+)
+
+export const updateUserInfoThunk = createAsyncThunk(
+    '/api/mypage/updateuserinfo',
+    async (userId, thunkAPI) => {
+        try {
+            const data = await apis.put_myInfo(userId);
+            const res = data;
+            // console.log('thunk UserInfo',data.data.data)
+            return res;
+        }catch(err){
+            return thunkAPI.rejectWithValue('thunkErr', err.response);
         }
     }
 )

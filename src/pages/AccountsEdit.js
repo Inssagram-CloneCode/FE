@@ -1,19 +1,23 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Layout from "../components/layout/Layout";
 import Container from "react-bootstrap/esm/Container";
 import Header from "../components/Header";
 import "./css/accountedit.css";
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
+import { updateUserInfoThunk } from "../redux/asyncThunk/myThunk";
 
 const AccountsEdit = () => {
+  const dispatch = useDispatch();
   // const userData = useSelector((state) => state.user.userData);
   // console.log(userData);
   let updateUserData = new FormData();
+  const [chkData, setData] = useState();
   const userData = useLocation().state.userData;
+  const userId = userData.userId;
   const username = userData.username;
   const email = userData.email;
   const intro = userData.intro;
@@ -29,21 +33,25 @@ const AccountsEdit = () => {
   const [showImg, setImg] = useState();
 
   const onSubmitForm = () => {
-    console.log("onsubmit!");
-    updateUserData.append("username", usernameRef.current?.value);
-    updateUserData.append("intro", introRef.current?.value);
-    updateUserData.append("profileImageFile", showImg);
-    console.log('onSubmitForm', JSON.stringify( updateUserData));
+    setData({
+      username : usernameRef.current?.value,
+      intro : introRef.current?.value,
+      profileImageFile : newPic,
+    })
+    // console.log('onSubmitForm',chkData ,JSON.stringify( updateUserData));
   };
 
   useEffect(() => {
-    updateUserData.append("username", usernameRef.current?.value);
-    updateUserData.append("intro", introRef.current?.value);
-    updateUserData.append("profileImageFile", showImg);
+    if(chkData!==undefined){
+    // updateUserData.append("username", usernameRef.current?.value);
+    // updateUserData.append("intro", introRef.current?.value);
+    // updateUserData.append("profileImageFile", newPic);
+    console.log('onSubmitForm useEffect',chkData ,JSON.stringify( updateUserData));
     console.log('useEffect', JSON.stringify( updateUserData));
-  }, [picRef])
+    dispatch(updateUserInfoThunk(userId))
+    }
+  }, [chkData])
   
-
   const onChangePic = (e) => {
     const reader = new FileReader();
     if (e.target.files[0]) {
@@ -83,7 +91,6 @@ const AccountsEdit = () => {
             <div className="accEditSide-pw">비밀번호 변경</div>
           </div>
           <div className="accEditArea">
-            <Form onSubmit={(e) => e.preventDefault()}>
             <input
               type="file"
               style={{ display: "none" }}
@@ -140,7 +147,6 @@ const AccountsEdit = () => {
                 제출
               </button>
             </div>
-            </Form>
           </div>
         </Container>
         <footer className="login_footer">

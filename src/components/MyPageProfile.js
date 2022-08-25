@@ -3,9 +3,6 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import { commaForNum } from "./funcs";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
-
 
 export const MyPageProfile = ({ myData, userData }) => {
   const navigate = useNavigate();
@@ -26,8 +23,8 @@ export const MyPageProfile = ({ myData, userData }) => {
   // console.log(userId);
 
   const profileImageUrl = myData.profileImageUrl;
-  const postTotalNum = myData.postTotalNum;
-  const heartTotalNum = myData.heartTotalNum;
+  const postTotalNum = commaForNum(myData.postTotalNum);
+  const heartTotalNum = commaForNum(myData.heartTotalNum);
   const intro =  myData.intro;
 
   const IntroDesc = ({intro}) => {

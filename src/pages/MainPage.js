@@ -5,15 +5,10 @@ import MainCard from "../components/MainCard";
 import Layout from "../components/layout/Layout";
 import Container from "react-bootstrap/Container";
 import "./css/mainpage.css";
-import apis from "../api/axios";
 import { getAllThunk } from "../redux/asyncThunk/homeThunk";
 
 const MainPage = () => {
-  
   const dispatch = useDispatch();
-  
-  // const state =  useSelector((state) => state);
-  // console.log('mainPagestate',state)
   const postList =  useSelector((state) => state.home.postList);
   // console.log('mainPage',postList)
   useEffect(() => {
