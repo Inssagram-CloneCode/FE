@@ -6,7 +6,7 @@ import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
 import AccountsEdit from './pages/AccountsEdit';
 import ModalTemplate from './components/modals/ModalTemplate';
-import { setModal,clearModal, setAlert, clearAlert } from './y_redux/modules/modalSlice';
+import { clearModal, setAlert } from './y_redux/modules/modalSlice';
 import './y_css/univ.css';
 
 

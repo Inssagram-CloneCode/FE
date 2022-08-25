@@ -1,22 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
 import {
   EmojiSvg,
   HeartOffSvg,
   HeartOnSvg,
   ReplySvg,
 } from "../components/iconfolder/Icons";
-import CommentInput from "./modals/eachBlock/CommentInputBox";
 import { commaForNum, timeForToday } from "./funcs";
 import "./css/maincard.css";
 import "../pages/css/mainpage.css";
 import Image from "react-bootstrap/esm/Image";
-import { addComment } from "../redux/modules/homeSlice";
+import { addComment } from "../y_redux/modules/homeSlice";
 import { Fragment } from "react";
-import { getCookie } from "../shared/cookie";
+import { getCookie } from "../shared/Cookie";
+import defaultImg from "../asset/defaultImg.jpg";
 
 const MainCard = ({ post }) => {
   const navigate = useNavigate();
@@ -24,19 +23,15 @@ const MainCard = ({ post }) => {
   const commentList = post.commentList;
 
   const [commentStatus, setComment] = useState("");
-  // const commentList = useSelector((state) => state.home.commentList);
-  const usernameMe = getCookie('username'); // 추후 변경 가능성 존재
+  const usernameMe = getCookie("username");
   const comRef = useRef();
   const [index, setIndex] = useState(0);
-  // const [indexCop, setIndexCop] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
-    // console.log(selectedIndex);
   };
 
   // const imgUrl = ["/images/dua1.jpg"];
-  const isHeart = post.isHeart;
   const imageUrlList = post.imageUrlList;
   const username = post.user.username;
   const userId = post.user.userId;
@@ -47,12 +42,6 @@ const MainCard = ({ post }) => {
   const heartNum = commaForNum(post.heartNum);
   const commentNum = commaForNum(post.commentNum);
   const createdAt = timeForToday(post.createdAt);
-
-  // const [heartStatus, setHeart] = useState(false);
-  // const heartRef = useRef();
-  // setTimeout(() => {e.target.style.style.display = "inline"}, 200);
-  // e.target.classList.toggle("popping")
-  // console.log(heartRef.current.classList)
 
   const heartOnClick = (e) => {
     setHeart(!heartStatus);
@@ -68,10 +57,10 @@ const MainCard = ({ post }) => {
   const onAddComment = () => {
     const newComment = {
       // postId : post.postId,
-      postId : 1,
-      username : usernameMe,
-      commentContents: comRef.current.value
-    }
+      postId: 1,
+      username: usernameMe,
+      commentContents: comRef.current.value,
+    };
     dispatch(addComment(newComment));
   };
 
@@ -85,19 +74,20 @@ const MainCard = ({ post }) => {
   }, [post]);
 
   const ProfileImageBox = () => {
-    return (profileImageUrl===null)?
-    <img
-    alt={`${username}님의 프로필 사진`}
-    className="profile"
-    src="./images/defaultImg.jpg"
-  /> 
-  :
-  <img
-    alt={`${username}님의 프로필 사진`}
-    className="profile"
-    src={profileImageUrl}
-  /> 
-  }
+    return profileImageUrl === null ? (
+      <img
+        alt={`${username}님의 프로필 사진`}
+        className="profile"
+        src={defaultImg}
+      />
+    ) : (
+      <img
+        alt={`${username}님의 프로필 사진`}
+        className="profile"
+        src={profileImageUrl}
+      />
+    );
+  };
 
   const ImageBox = () => {
     return imageUrlList?.length === 1 ? (
@@ -126,7 +116,7 @@ const MainCard = ({ post }) => {
         <div className="outTopSt">
           <div className="inTopSt" onClick={() => onClickProfile()}>
             <button>
-             <ProfileImageBox />
+              <ProfileImageBox />
             </button>
             <span>
               <strong>{username}</strong>
@@ -158,7 +148,7 @@ const MainCard = ({ post }) => {
           <button>
             <span>댓글 {commentNum}개 모두 보기</span>
           </button>
-          <br/>
+          <br />
           {commentList.map((c, idx) => {
             return (
               <Fragment key={idx}>
@@ -185,8 +175,8 @@ const MainCard = ({ post }) => {
             />
             <button
               className="comment-btn"
-              disabled={commentStatus.trim().length===0}
-              onClick={()=>onAddComment()}
+              disabled={commentStatus.trim().length === 0}
+              onClick={() => onAddComment()}
             >
               게시
             </button>

@@ -1,5 +1,5 @@
 import { createAsyncThunk} from "@reduxjs/toolkit";
-import apis from "../../api/axios";
+import apis from "../../../api/axios";
 
 export const getAllMyThunk = createAsyncThunk(
     '/api/mypage/getmypage',

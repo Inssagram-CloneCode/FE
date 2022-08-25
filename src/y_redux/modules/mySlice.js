@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllMyThunk, getUserInfoThunk } from "../asyncThunk/myThunk";
+import { getAllMyThunk, getUserInfoThunk } from "./asyncThunk/myThunk";
 
 // slice 내에선 getState()
 const initialState = {
@@ -21,7 +21,6 @@ const mySlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getAllMyThunk.fulfilled, (state, action) => {
-      // console.log("extraReducers fulfilled! getAllMy", action.payload);
       const myData = {
         userId: action.payload.user.userId,
         username: action.payload.user.username,
@@ -32,7 +31,6 @@ const mySlice = createSlice({
       };
       state.myData = myData;  
       state.contentList = action.payload.contentList;
-      // state.commentList = action.payload.commentList
     });
     builder.addCase(getUserInfoThunk.fulfilled, (state, action) => {
       const userData = {
@@ -41,7 +39,6 @@ const mySlice = createSlice({
         profileImageUrl: action.payload.profileImgUrl,
         email:action.payload.email
       };
-      // console.log("extraReducers fulfilled! re-getUserInfo", userData);
       state.userData = userData;  
     });
   },

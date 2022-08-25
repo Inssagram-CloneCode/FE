@@ -26,8 +26,6 @@ const PostDrop = () => {
   const dropImg = (e) =>{
     e.preventDefault();
     const file = e.dataTransfer.files;
-    //파일 확장자 유효성 검사 했다고 치고
-    // ref: https://betterprogramming.pub/how-to-implement-files-drag-and-drop-in-react-22cf42b7a7ef
     const reader = new FileReader();
     reader.readAsDataURL(file[0]);
     reader.onloadend = () => {
@@ -51,12 +49,15 @@ const PostDrop = () => {
 
   const inputImgChange = (e) => {
     const file = e.dataTransfer.files;
+    console.log(file)
+    console.log(file[0])
     const reader = new FileReader();
     reader.readAsDataURL(file[0]);
     reader.onloadend = () => {
       const base64 = reader.result;
       if(base64){
         const base64Sub = base64.toString();
+        console.log(base64Sub);
         dispatch(setModal({...modalData, imgSrc: base64Sub, blob:file}));
         setPreview(base64Sub);
       }
