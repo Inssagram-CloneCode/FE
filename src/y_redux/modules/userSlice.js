@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { setCookie } from '../../shared/cookie';
-import { postWithCookie, postWithoutCookie } from '../../y_axios/axios';
+import { getWithCookie, postWithCookie, postWithoutCookie } from '../../y_axios/axios';
 import { deleteCookie, getCookie } from '../../y_axios/cookie';
 import { clearLocal, getLocal, setLocal } from '../../y_axios/local';
 
@@ -24,8 +24,7 @@ export const signupUserThunk = createAsyncThunk('user/signupUserThunk', async (u
 export const clearUserThunk = createAsyncThunk('user/clearUserThunk', async (user_data) => {
     const cookie = getCookie();
     const refresh = getLocal('refresh');
-    const res = await postWithCookie('/api/auth/logout',{},cookie, refresh);
-    console.log(res);
+    const res = await getWithCookie('/api/auth/logout',cookie, refresh);
     return res.data;
   }
 );
