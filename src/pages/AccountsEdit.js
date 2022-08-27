@@ -21,7 +21,7 @@ const AccountsEdit = () => {
   const userId = userData.userId;
   const username = userData.username;
   const email = userData.email;
-  const intro = userData.intro;
+  const intro =  useLocation().state.intro;
   const profileImageUrl = userData.profileImageUrl;
 
   const usernameRef = useRef();
@@ -56,7 +56,7 @@ const AccountsEdit = () => {
       });
       // updateUserData.append("editUserProfileRequestDto",{ username: usernameRef.current?.value,
         // intro: introRef.current?.value,});
-      updateUserData.append("editUserProfileRequestDto",blobData)
+      updateUserData.append("editUserProfileRequestDto", blobData)
       if(newPic===undefined){
         updateUserData.append("profileImageFile", null);
       }else{
@@ -67,9 +67,7 @@ const AccountsEdit = () => {
       //   newUserData,
       //   JSON.stringify(updateUserData)
       // );
-      // console.log("useEffect", JSON.stringify(updateUserData));
       apis.put_myInfo(userId, updateUserData);
-      // apis.put_myInfo3(userId, editUserProfileRequestDto, newPic);
     
     }
   }, [newUserData]);

@@ -46,22 +46,20 @@ const MainCard = ({ post }) => {
 
   const heartOnClick = (e) => {
     if (heartStatus) {
-    setHeart(!heartStatus);
-      apis.post_heart(post.postId, {isHeart:1}
-        
-        )
-    }else {
       setHeart(!heartStatus);
-      apis.post_heart(post.postId, {isHeart:0}
-        )
+      const updateHeartNum = apis.post_heart(post.postId, { isHeart: 1 });
+    } else {
+      setHeart(!heartStatus);
+      apis.post_heart(post.postId, { isHeart: 0 });
     }
+
     setTimeout(() => {}, 100);
   };
   const HeartOnOff = () => {
     if (heartStatus) {
-      return <HeartOnSvg />
-    }else {
-     return <HeartOffSvg />
+      return <HeartOnSvg />;
+    } else {
+      return <HeartOffSvg />;
     }
   };
 
@@ -88,7 +86,7 @@ const MainCard = ({ post }) => {
   }, [post]);
 
   const ProfileImageBox = () => {
-    return profileImageUrl === null ? (
+    return (profileImageUrl === null|| profileImageUrl === undefined || profileImageUrl === "") ? (
       <img
         alt={`${username}님의 프로필 사진`}
         className="profile"
