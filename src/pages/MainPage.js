@@ -12,7 +12,7 @@ const MainPage = () => {
   const postList = useSelector((state) => state.home.postList);
   useEffect(() => {
     dispatch(getAllThunk());
-  }, [dispatch, postList]);
+  }, [dispatch]);
 
 
   return (
