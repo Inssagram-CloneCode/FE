@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearModal, setModal, uploadPostThunk } from '../../y_redux/modules/modalSlice';
+import { clearModal, setModal, uploadPostThunk } from '../../redux/modules/modalSlice';
 import UnivButton from '../univ/univButton';
 import UnivProfile from '../univ/univProfile';
-import '../../y_css/postWrite.css';
+import '../../css/postWrite.css';
 
 import ImgBox from './ImgBox';
 import me from '../../asset/profileMe.png';

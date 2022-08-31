@@ -6,7 +6,7 @@ import PostContent from './eachBlock/PostContent';
 import CommentBox from './eachBlock/CommentBox';
 import PostFooter from './eachBlock/PostFooter';
 import CommentInputBox from './eachBlock/CommentInputBox';
-import '../../y_css/postCompo.css';
+import '../../css/postCompo.css';
 
 
 const PostWatch = () => {

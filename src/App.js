@@ -6,8 +6,8 @@ import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
 import AccountsEdit from './pages/AccountsEdit';
 import ModalTemplate from './components/modals/ModalTemplate';
-import { clearModal, setAlert } from './y_redux/modules/modalSlice';
-import './y_css/univ.css';
+import { clearModal, setAlert } from './redux/modules/modalSlice';
+import './css/univ.css';
 
 
 function App() {

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UnivButton from '../univ/univButton';
 import dragImg from '../../asset/dragImage.png'
-import { setModal } from '../../y_redux/modules/modalSlice';
-import '../../y_css/postDrop.css';
+import { setModal } from '../../redux/modules/modalSlice';
+import '../../css/postDrop.css';
 
 
 

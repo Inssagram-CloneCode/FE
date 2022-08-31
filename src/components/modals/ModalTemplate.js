@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setModal, clearModal } from '../../y_redux/modules/modalSlice';
+import { setModal, clearModal } from '../../redux/modules/modalSlice';
 import PostWatch from './PostWatch';
 import PostDrop from './PostDrop';
 import ConfirmRemove from './ConfirmRemove';
 import PostWrite from './PostWrite';
-import '../../y_css/modalTemplate.css';
+import '../../css/modalTemplate.css';
 
 
 

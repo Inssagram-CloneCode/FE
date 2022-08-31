@@ -12,10 +12,10 @@ import { commaForNum, timeForToday } from "./funcs";
 import "./css/maincard.css";
 import "../pages/css/mainpage.css";
 import Image from "react-bootstrap/esm/Image";
-import { addComment } from "../y_redux/modules/homeSlice";
+import { addComment } from "../redux/modules/homeSlice";
 import { Fragment } from "react";
 import apis from "../api/axios";
-import { getCookie } from "../shared/Cookie";
+import { getCookie } from "../shared/cookie";
 import defaultImg from "../asset/defaultImg.jpg";
 
 const MainCard = ({ post }) => {

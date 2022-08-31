@@ -5,17 +5,15 @@ import MainCard from "../components/MainCard";
 import Layout from "../components/layout/Layout";
 import Container from "react-bootstrap/Container";
 import "./css/mainpage.css";
-import { getAllThunk } from "../y_redux/modules/asyncThunk/homeThunk";
+import { getAllThunk } from "../redux/modules/asyncThunk/homeThunk";
 
 const MainPage = () => {
   const dispatch = useDispatch();
   const postList = useSelector((state) => state.home.postList);
   useEffect(() => {
     dispatch(getAllThunk());
-  }, [dispatch]);
-  useEffect(() => {
-    console.log(postList);
-  }, [postList]);
+  }, [dispatch, postList]);
+
 
   return (
     <>

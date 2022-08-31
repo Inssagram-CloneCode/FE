@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { clearAlert, clearAll } from '../../y_redux/modules/modalSlice';
-import '../../y_css/confirmRemove.css';
+import { clearAlert, clearAll } from '../../redux/modules/modalSlice';
+import '../../css/confirmRemove.css';
 
 
 const ConfirmRemove = () => {

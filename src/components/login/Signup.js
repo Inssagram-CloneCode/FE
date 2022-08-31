@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { signupUserThunk } from '../../y_redux/modules/userSlice';
-import '../../y_css/login/signup.css';
+import { signupUserThunk } from '../../redux/modules/userSlice';
+import '../../css/login/signup.css';
 import logoImg from '../../asset/instaLogo.png'
 
 

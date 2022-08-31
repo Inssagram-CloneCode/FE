@@ -1,7 +1,7 @@
 import React from 'react';
 import UnivProfile from '../../univ/univProfile';
 import UnivButton from '../../univ/univButton';
-import '../../../y_css/commentBox.css';
+import '../../../css/commentBox.css';
 
 import you from '../../../asset/profileYou.png'
 

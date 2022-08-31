@@ -1,6 +1,6 @@
 import axios from "axios";
-import { getCookie } from "../shared/Cookie";
-import { getLocal } from "../y_axios/local";
+import { getCookie } from "../shared/cookie";
+import { getLocal } from "../api/local";
 
 // 1. Axios instance생성
 const base_url = "http://52.78.235.109/api";

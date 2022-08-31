@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../y_css/postContent.css';
+import '../../../css/postContent.css';
 
 import me from '../../../asset/profileMe.png';
 

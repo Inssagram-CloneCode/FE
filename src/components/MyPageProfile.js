@@ -10,6 +10,7 @@ export const MyPageProfile = ({ myData, userData }) => {
   const navigate = useNavigate();
   let updateUserData = new FormData();
   const [checkData,setData] = useState();
+  const [editUserProfileRequestDto, setUserDto] = useState(); 
   const picRef = useRef();
   // 새로  보내줄 사진 데이터
   const [newPic, setPic] = useState();

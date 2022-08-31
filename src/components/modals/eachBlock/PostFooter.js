@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../y_css/postFooter.css';
+import '../../../css/postFooter.css';
 import UnivButton from '../../univ/univButton';
 
 

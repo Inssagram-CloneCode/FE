@@ -1,6 +1,6 @@
 import React from 'react';
 import UnivProfile from '../../univ/univProfile';
-import '../../../y_css/postHeader.css';
+import '../../../css/postHeader.css';
 
 import me from '../../../asset/profileMe.png'
 import UnivButton from '../../univ/univButton';

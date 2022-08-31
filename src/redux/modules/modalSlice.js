@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { postWithCookieFormData } from '../../y_axios/axios';
-import { getCookie } from '../../y_axios/cookie';
-import { getLocal } from '../../y_axios/local';
+import { postWithCookieFormData } from '../../api_y/axios';
+import { getCookie } from '../../api_y/cookie';
+import { getLocal } from '../../api/local';
 
 
 

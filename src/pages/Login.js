@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loginUserThunk } from '../y_redux/modules/userSlice';
+import { loginUserThunk } from '../redux/modules/userSlice';
 import Signup from '../components/login/Signup';
-import '../y_css/login.css';
+import '../css/login.css';
 import logoImg from '../asset/instaLogo.png'
 
 

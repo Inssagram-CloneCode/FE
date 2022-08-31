@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { clearUserThunk, loadUserThunk } from "../y_redux/modules/userSlice";
-import { getCookie } from "../y_axios/cookie";
+import { clearUserThunk, loadUserThunk } from "../redux/modules/userSlice";
+import { getCookie } from "../api_y/cookie";
 import UnivButton from "./univ/univButton";
 import UnivProfile from "./univ/univProfile";
 import logoImg from "../asset/instaLogo.png";
 import defaultImg from "../asset/defaultImg.jpg";
-import { setModal } from "../y_redux/modules/modalSlice";
-import "../y_css/header.css";
+import { setModal } from "../redux/modules/modalSlice";
+import "../css/header.css";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.user.userData);
   useEffect(() => {
-    console.log(userData);
+    // console.log(userData);
     const accessCookie = getCookie("mytoken");
     if (userData.userId === undefined) {
       if (accessCookie === undefined) {

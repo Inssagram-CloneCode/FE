@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { deleteCookie, getCookie } from "../../y_axios/cookie";
-import { getWithCookie, postWithoutCookie } from "../../y_axios/axios";
-import { clearLocal, getLocal, setLocal } from "../../y_axios/local";
+import { deleteCookie, getCookie } from "../../api_y/cookie";
+import { getWithCookie, postWithoutCookie } from "../../api_y/axios";
+import { clearLocal, getLocal, setLocal } from "../../api/local";
 
 export const loadUserThunk = createAsyncThunk(
   "user/loadUserThunk",
