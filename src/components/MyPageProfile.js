@@ -3,8 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import { commaForNum } from "./funcs";
-import apis from "../api/axios";
 import { useEffect } from "react";
+import defaultImg from "../asset/defaultImg.jpg";
+import apis from "../api/axios";
 
 export const MyPageProfile = ({ myData, userData }) => {
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ export const MyPageProfile = ({ myData, userData }) => {
           fluid
           roundedCircle
           thumbnail
-          src={showImg ? showImg : "/images/defaultImg.jpg"}
+          src={showImg ? showImg : defaultImg}
         />
       </button>
     ) : (
