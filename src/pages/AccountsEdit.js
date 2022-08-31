@@ -7,8 +7,8 @@ import Header from "../components/Header";
 import "./css/accountedit.css";
 import { useLocation } from "react-router-dom";
 import Table from "react-bootstrap/Table";
-import Form from "react-bootstrap/Form";
 import apis from "../api/axios";
+import defaultImg from "../asset/defaultImg.jpg";
 
 const AccountsEdit = () => {
   const dispatch = useDispatch();
@@ -91,7 +91,7 @@ const AccountsEdit = () => {
       profileImageUrl === null ? (
       <img
         className="accEditPic"
-        src={showImg ? showImg : "/images/defaultImg.jpg"}
+        src={showImg ? showImg : defaultImg}
         alt={`${username}`}
       />
     ) : (
