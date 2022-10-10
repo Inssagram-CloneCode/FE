@@ -1,4 +1,4 @@
-# [Inssagram] - CloneCode Project: backend
+# [Inssagram] - CloneCode Project
 
 이 미 지
 
